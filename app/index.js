@@ -2,7 +2,7 @@ var generators = require('yeoman-generator');
 
 module.exports = generators.Base.extend({
 	prompting: function() {
-		this.log('what up');
+		this.log('log');
 	},
 	writing: function() {
 		

@@ -1,4 +1,4 @@
-# GNorm - Genuine Norm Yeoman Generator
+# GNorm - Genuine UI Starting Point
 
 Genuine Norm (GNorm) is an all-encompassing starting point for Genuine UI projects that provides architectural direction, fast scaffolding, code familiarity and promotes developer scalability.
 
@@ -12,9 +12,10 @@ Genuine Norm (GNorm) is an all-encompassing starting point for Genuine UI projec
 ## Installation
 Once you have installed the above dependencies:
 
-1. Clone this repository into your development folder
-2. Copy all files except for the .git directory into a new project folder
-3. `cd` into the root of the new project folder and run `npm install && bundle install` from the command line
+1. Create a new directory for your project and cd in `mkdir new-project && cd $_`
+2. Ensure the GNome Yeoman generator is installed and updated `npm install -g generator-gnome` or `npm update generator-gnome`
+3. Run the generator `yo gnorm`
+4. Complete the generator prompt questions to scaffold the project
 
 ## Running
 From the root of the project, several commands can be issued from terminal:
