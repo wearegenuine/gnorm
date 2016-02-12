@@ -1,0 +1,53 @@
+form {}
+
+button {}
+
+input {
+  @include font-size(16, 24);
+}
+
+input[type='submit'],
+input[type='radio'],
+input[type='checkbox'] {
+  width: auto;
+}
+
+input[type='submit'] {}
+
+input[type='text'] {}
+
+input[type='password'] {}
+
+input[type='radio'] {}
+
+input[type='checkbox'] {}
+
+label {
+  display: block;
+}
+
+textarea {}
+
+select {}
+
+.customSelect {
+  // Styles for custom select box 
+
+  &.customSelectHover {
+    // Styles for when the select box is hovered 
+  }
+
+  &.customSelectOpen {
+    // Styles for when the select box is open 
+  }
+
+  &.customSelectFocus {
+    // Styles for when the select box is in focus 
+  }
+}
+
+.customSelectInner {
+  // You can style the inner box too 
+}
+
+

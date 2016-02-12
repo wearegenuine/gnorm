@@ -1,0 +1,140 @@
+// SUSY DEFAULTS
+//
+// $susy: (
+//   flow: ltr,
+//   math: fluid,
+//   output: float,
+//   gutter-position: after,
+//   container: auto,
+//   container-position: center,
+//   columns: 4,
+//   gutters: .25,
+//   column-width: false,
+//   global-box-sizing: content-box,
+//   last-flow: to,
+//   debug: (
+//     image: hide,
+//     color: rgba(#66f, .25),
+//     output: background,
+//     toggle: top right,
+//   ),
+//   use-custom: (
+//     background-image: true,
+//     background-options: false,
+//     box-sizing: true,
+//     clearfix: false,
+//     rem: true,
+//   )
+// );
+
+// SUSY CONFIG
+$susy: (
+  columns: 12,
+  global-box-sizing: border-box,
+  gutters: .25,
+  gutter-position: after,
+  debug: (
+    image: show,
+    color: rgba(#66f, .25),
+    output: background,
+    toggle: top right,
+  )
+);
+
+
+// If you use compass, you need this,
+// or else the box-sizing mixin
+// from compass won't work with susy
+@mixin box-sizing($value) {
+  box-sizing: $value;
+}
+
+.outer-wrapper {
+  position: relative;
+}
+
+.inner-wrapper {
+  @include container(1280px);
+  margin: 0 auto;
+  position: relative;
+  width: 90%;
+}
+
+.row {
+  @extend %clearfix;
+  display: block;
+}
+
+@mixin grid($num) {
+  @include breakpoint($mobile) {
+    @include span(12 of 12);
+    &.center {
+      @include push(0);
+    }
+  }
+
+  @include breakpoint($tablet) {
+    @include span($num of 12);
+  }
+}
+
+%span-2,
+.span-2 {
+  @include grid(2);
+}
+
+%span-3,
+.span-3 {
+  @include grid(3);
+}
+
+%span-4,
+.span-4 {
+  @include grid(4);
+}
+
+%span-5,
+.span-5 {
+  @include grid(5);
+}
+
+%span-6,
+.span-6 {
+  @include grid(6);
+}
+
+%span-7,
+.span-7 {
+  @include grid(7);
+}
+
+%span-8,
+.span-8 {
+  @include grid(8);
+}
+
+%span-9,
+.span-9 {
+  @include grid(9);
+}
+
+%span-10,
+.span-10 {
+  @include grid(10);
+}
+
+%span-11,
+.span-11 {
+  @include grid(11);
+}
+
+%span-12,
+.span-12 {
+  @include grid(12);
+}
+
+[class^='span-'] {
+  &:last-child {
+    margin-right: 0;
+  }
+}

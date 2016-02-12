@@ -1,0 +1,45 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Genuine - UI Templates</title>
+
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="cleartype" content="on">
+
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/styles/screen.css">
+
+  <!-- Deferred font loading -->
+  <script src="/scripts/libs/fontfaceobserver.js"></script>
+  <script>
+  var regular = new FontFaceObserver("Roboto", {
+    weight: 400
+  });
+  var bold = new FontFaceObserver("Roboto", {
+    weight: 700
+  });
+  Promise.all([
+    regular.check(),
+    bold.check()
+  ]).then(function() {
+    document.body.className += " fonts-loaded";
+  });
+  </script>
+
+  <script src="/scripts/libs/modernizr.js"></script>
+
+  <!--[if lt IE 9]>
+  <link rel="stylesheet" type="text/css" href="styles/css/ie8.css" />
+  <![endif]-->
+
+</head>
