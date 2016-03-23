@@ -51,7 +51,7 @@ module.exports = generators.Base.extend({
 			{
 				type: 'input',
 				name: 'repo_url',
-				message: 'Please enter the repository URL (git@bitbucket.org:genuine/*.git):',
+				message: 'Please enter the origin repository URL (git@bitbucket.org:genuine/*.git):',
 				default: null
 			},
 			{
@@ -92,12 +92,6 @@ module.exports = generators.Base.extend({
 			this.destinationPath('gulpfile.js')
 		);
 
-		// copy README.md
-		this.fs.copy(
-			this.templatePath('_README.md'),
-			this.destinationPath('README.md')
-		);
-
 		// copy gnorm/
 		this.fs.copy(
 			this.templatePath('gnorm/'),
@@ -108,6 +102,18 @@ module.exports = generators.Base.extend({
 		this.fs.copy(
 			this.templatePath('app/'),
 			this.destinationPath('./app')
+		);
+
+		// template README.md
+		this.fs.copyTpl(
+			this.templatePath('_README.md'),
+			this.destinationPath('README.md'),
+			{ 
+				appname: this.props.appname,
+				appdescription: this.props.appdescription,
+				appversion: this.props.appversion,
+				repo_url: this.props.repo_url
+			}
 		);
 
 		// template _package.json
@@ -139,6 +145,9 @@ module.exports = generators.Base.extend({
 			this.spawnCommand('git', ['init']).on('close', ()=> {
 				this.spawnCommand('git', ['remote', 'add', 'origin', this.props.repo_url]);
 			});
+		} else {
+			// without a repo_url, atleast git init
+			this.spawnCommand('git', ['init']);
 		}
 		
 	},
