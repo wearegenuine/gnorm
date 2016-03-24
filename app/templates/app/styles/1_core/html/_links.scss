@@ -1,0 +1,11 @@
+///*------------------------------------*\
+//    #CORE/HTML - LINKS
+//\*------------------------------------*/
+
+a {
+  transition: color .3s ease;
+  text-decoration: none;
+
+  &:active {}
+  &:hover {}
+}

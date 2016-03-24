@@ -1,0 +1,301 @@
+
+  <section class="wrapper">
+    <a href="/">
+      < Back to Template Index<br>
+    </a>
+    <h1>{{ title }}</h1>
+    <section>
+      <header>
+        <h2>Basic Text Styles</h2>
+        <p>
+          <em>These elements can be edited in the /styles/sass/1_core/html-elements/_base.scss</em>
+        </p>
+      </header>
+      <section class="span-8">
+        <h3>Font Families</h3>
+        <style>
+          .font-family--sans{ font-family: 'Roboto-Regular'; }
+          .font-family--sans-italic{ font-family: 'Roboto-Italic'; }
+          .font-family--sans-bold{ font-family: 'Roboto-Bold'; }
+        </style>
+        <ul>
+          <li>
+            Roboto
+            <ul>
+              <li>
+                <span class="font-family--sans">Roboto Regular</span>
+              </li>
+              <li>
+                <span class="font-family--sans-italic">Roboto Italic</span>
+              </li>
+              <li>
+                <span class="font-family--sans-bold">Roboto Bold</span>
+              </li>
+            </ul>
+          </li>
+          <li>
+            Another Family
+            <ul>
+              <li></li>
+            </ul>
+          </li>
+        </ul>
+
+        <h3>Headers</h3>
+        <h1>Header 1</h1>
+        <h2>Header 2</h2>
+        <h3>Header 3</h3>
+        <h4>Header 4</h4>
+        <h5>Header 5</h5>
+        <h6>Header 6</h6>
+        <h3>Blocks</h3>
+        <h4>Paragraph</h4>
+        <p>Paragraph of text.
+          <strong>Bold</strong> In ut nisl ultrices orci iaculis blandit et et nisi. Suspendisse ipsum erat, consequat eget dapibus eu, porttitor at felis. Maecenas sodales ullamcorper venenatis. Maecenas non tincidunt leo. Sed feugiat viverra erat tincidunt pharetra.
+          Integer et sodales nisi. Phasellus sagittis lacinia elit sed condimentum. Cras mollis et libero id vestibulum. Suspendisse adipiscing sed nibh vitae aliquet. Donec consequat nisl orci, in tristique lectus imperdiet vel. Pellentesque habitant morbi
+          tristique senectus et netus et malesuada fames ac turpis egestas. Ut placerat varius nunc sit amet porta.</p>
+        <p>Paragraph of text.
+          <em>Italics</em> In ut nisl ultrices orci iaculis blandit et et nisi. Suspendisse ipsum erat, consequat eget dapibus eu, porttitor at felis. Maecenas sodales ullamcorper venenatis. Maecenas non tincidunt leo. Sed feugiat viverra erat tincidunt pharetra.
+          Integer et sodales nisi. Phasellus sagittis lacinia elit sed condimentum. Cras mollis et libero id vestibulum. Suspendisse adipiscing sed nibh vitae aliquet. Donec consequat nisl orci, in tristique lectus imperdiet vel. Pellentesque habitant morbi
+          tristique senectus et netus et malesuada fames ac turpis egestas. Ut placerat varius nunc sit amet porta.</p>
+        <h3>Links</h3>
+        <a href="#">Sample Text Link</a>
+        <br>
+        <a href="#" data-role="button">Sample Button</a>
+        <br>
+        <br>
+      </section>
+      <aside class="span-4">
+        <h3>Font Styling</h3>
+        <p><b>Bold Font</b></p>
+        <p><i>Italic Font</i></p>
+        <p>Super<sup>Script</sup></p>
+        <p>Sub<sub>Script</sub></p>
+        <h3>Lists</h3>
+        <h4>Unordered List</h4>
+        <ul>
+          <li>List Item A</li>
+          <li>List Item B</li>
+          <li>List Item C</li>
+          <ul>
+            <li>List Item A</li>
+            <li>List Item B</li>
+            <li>List Item C</li>
+            <ul>
+              <li>List Item A</li>
+              <li>List Item B</li>
+              <li>List Item C</li>
+              <li>List Item D</li>
+            </ul>
+            <li>List Item D</li>
+          </ul>
+          <li>List Item D</li>
+        </ul>
+        <h4>Ordered List</h4>
+        <ol>
+          <li>List Item 1</li>
+          <li>List Item 2</li>
+          <li>List Item 3</li>
+          <ol>
+            <li>List Item 1</li>
+            <li>List Item 2</li>
+            <li>List Item 3</li>
+            <ol>
+              <li>List Item 1</li>
+              <li>List Item 2</li>
+              <li>List Item 3</li>
+              <li>List Item 4</li>
+            </ol>
+            <li>List Item 4</li>
+          </ol>
+          <li>List Item 4</li>
+        </ol>
+      </aside>
+    </section>
+  </section>
+  <section class="wrapper">
+    <section>
+      <header>
+        <h2>Forms</h2>
+        <p>
+          <em>These elements can be edited in the /styles/sass/1_core/html-elements/_forms.scss</em>
+        </p>
+      </header>
+      <section class="span-6">
+        <form>
+          <fieldset>
+            <label for="textfieldsample">Text Field Sample Label</label>
+            <input id="textfieldsample" type="text" placeholder="Text Field Sample">
+            <label for="textareasample">Text Area Sample Label</label>
+            <textarea name="textareasample" id="textareasample" cols="30" rows="10"></textarea>
+          </fieldset>
+          <label for="" class="error">Email (with error class)</label>
+          <input type="email" class="error">
+          <label for="">Password</label>
+          <input type="password">
+          <label for="">Search</label>
+          <input type="search">
+          <!-- <div class="customSelect"> -->
+          <label for="">Option List</label>
+          <select name="selectsample" id="selectsample">
+            <option value="a">Option A</option>
+            <option value="b">Option B</option>
+            <option value="c">Option C</option>
+          </select>
+          <!-- </div> -->
+          <br>
+          <label for="">Checkboxes</label>
+          <input type="checkbox" id="checkbox1" checked=true>
+          <label for="checkbox1">Checkbox 1</label>
+          <input type="checkbox" id="checkbox2">
+          <label for="checkbox2">Checkbox 2</label>
+          <input type="checkbox" id="checkbox3">
+          <label for="checkbox3">Checkbox 3</label>
+          <br>
+          <label for="">Radio Buttons</label>
+          <input type="radio" name="sampleradio" value="1"> Radio 1
+          <input type="radio" name="sampleradio" value="2" checked="checked"> Radio 2
+          <input type="radio" name="sampleradio" value="3"> Radio 3
+          <label for="">File</label>
+          <input type="file">
+          <label for="">Button</label>
+          <button>Sample Button</button>
+          <br>
+          <br>
+          <label for="">Submit</label>
+          <input type="submit">
+        </form>
+      </section>
+      <section class="span-6">
+        <fieldset>
+          <h2>HTML5 Attributes</h2>
+          <label>Color</label>
+          <input type="color">
+          <label for="">Number</label>
+          <input type="number">
+          <label for="">Range</label>
+          <input type="range">
+          <label for="">Telephone</label>
+          <input type="tel">
+          <label for="">URL</label>
+          <input type="url">
+          <label for="">Date</label>
+          <input type="date">
+          <label for="">Date Time</label>
+          <input type="datetime">
+          <label for="">Date Time Local</label>
+          <input type="datetime-local">
+          <label for="">Month</label>
+          <input type="month">
+          <label for="">Week</label>
+          <input type="week">
+          <label for="">Time</label>
+          <input type="time">
+        </fieldset>
+      </section>
+    </section>
+  </section>
+  <section class="wrapper">
+    <section>
+      <header>
+        <h2>Tables</h2>
+        <p>
+          <em>These elements can be edited in the /styles/sass/1_core/html-elements/_tables.scss</em>
+        </p>
+      </header>
+      <section>
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th>Header content 1</th>
+                <th>Header content 2</th>
+                <th>Header content 3</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Body content 1</td>
+                <td>Body content 2</td>
+                <td>Body content 3</td>
+              </tr>
+              <tr>
+                <td>Body content 1</td>
+                <td>Body content 2</td>
+                <td>Body content 3</td>
+              </tr>
+              <tr>
+                <td>Body content 1</td>
+                <td>Body content 2</td>
+                <td>Body content 3</td>
+              </tr>
+              <tr>
+                <td>Body content 1</td>
+                <td>Body content 2</td>
+                <td>Body content 3</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <br>
+      </section>
+    </section>
+  </section>
+  <section class="wrapper">
+    <header class="title-area">
+      <h2>Icons</h2>
+      <p>
+        <em>These elements can be added/edited in the /styles/sass/1_core/_icons.scss and /fonts/icomoon</em>
+      </p>
+    </header>
+    <section>
+      <style>
+        ul.iconset li {
+          display: inline-block;
+          list-style-type: none;
+          font-size: 18px;
+          line-height: 28px;
+          margin: 25px 80px 25px 0;
+          vertical-align: middle;
+          width: 200px;
+        }
+
+        ul.iconset li:before {
+          font-size: 32px;
+          line-height: 1px;
+          margin-right: 10px;
+          position: relative;
+          top: 7px;
+        }
+      </style>
+      <h3>Utility Icons @ 32px</h3>
+      <ul class="iconset">
+        <li class="icon-arrow-d">arrow-d</li>
+        <li class="icon-arrow-l">arrow-l</li>
+        <li class="icon-arrow-r">arrow-r</li>
+        <li class="icon-arrow-u">arrow-u</li>
+        <li class="icon-bracket-d">bracket-d</li>
+        <li class="icon-bracket-l">bracket-l</li>
+        <li class="icon-bracket-r">bracket-r</li>
+        <li class="icon-bracket-u">bracket-u</li>
+        <li class="icon-cart">cart</li>
+        <li class="icon-chat">chat</li>
+        <li class="icon-facebook">facebook</li>
+        <li class="icon-heart">heart</li>
+        <li class="icon-home">home</li>
+        <li class="icon-info">info</li>
+        <li class="icon-instagram">instagram</li>
+        <li class="icon-mail">mail</li>
+        <li class="icon-play">play</li>
+        <li class="icon-search">search</li>
+        <li class="icon-solid-arrow-d-u">solid-arrow-d-u</li>
+        <li class="icon-solid-arrow-d">solid-arrow-d</li>
+        <li class="icon-solid-arrow-l">solid-arrow-l</li>
+        <li class="icon-solid-arrow-r">solid-arrow-r</li>
+        <li class="icon-solid-arrow-u">solid-arrow-u</li>
+        <li class="icon-twitter">twitter</li>
+        <li class="icon-user">user</li>
+      </ul>
+    </section>
+  </section>
+

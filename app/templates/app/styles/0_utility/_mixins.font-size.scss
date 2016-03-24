@@ -1,0 +1,14 @@
+///*------------------------------------*\
+//    #UTILITY - FONT SIZE
+//\*------------------------------------*/
+/* Note: This either needs to be completely replaced or needs to go away entirely.
+ * There are much better approaches to handling REM font sizing (and REM fallbacks)
+ * using off-the-shelf libraries + PostCSS processors
+ */
+
+@mixin font-size($sizeValue: 1.6, $line: $sizeValue * 1.5) {
+  font-size: $sizeValue * 1 + px !important;
+  line-height: $line * 1 + px !important;
+  font-size: $sizeValue / 10 + rem !important;
+  line-height: $line / 10 + rem !important;
+}

@@ -1,0 +1,26 @@
+{% for item in personCards %}
+<div class="span-4 media media--person-card {{ item.modifierClasses }}" data-orientation="vertical">
+  {% if item.hasImage %}
+    <div class="media__image">
+        <div style="background-image:url('{{ item.image }}');"></div>
+    </div>
+  {% endif %}
+
+  {% if item.hasThumb %}
+  <div class="media media--presenter-thumb" data-orientation="horizontal">
+    <div class="media__image">
+        <div style="background-image: url('{{ item.thumbnail }}');"></div>
+    </div>
+    <div class="media__text">
+        <p>{{ item.name }}</p>
+    </div>
+  </div>
+  {% else %}
+    <a href="#" data-icon="arrow-r">{{ item.name }}</a>
+  {% endif %}
+
+  <div class="media__text">
+    <p><em>{{ item.text }}</em></p>
+  </div>
+</div>
+{% endfor %}

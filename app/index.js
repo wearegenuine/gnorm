@@ -2,7 +2,7 @@ var generators = require('yeoman-generator');
 
 module.exports = generators.Base.extend({
 	prompting: function() {
-		
+
 		// appname
 		// appdescription
 		// appversion
@@ -63,7 +63,7 @@ module.exports = generators.Base.extend({
 		];
 
 		this.prompt(prompts, function (props) {
-		
+
 			// to access props later use this.props.someOption;
 			this.props = props;
 
@@ -80,10 +80,22 @@ module.exports = generators.Base.extend({
 			this.destinationPath('.gitignore')
 		);
 
-		// copy Gemfile
+		// copy gulpfile.js
 		this.fs.copy(
-			this.templatePath('_Gemfile'),
-			this.destinationPath('Gemfile')
+			this.templatePath('_gulpfile.js'),
+			this.destinationPath('gulpfile.js')
+		);
+
+		// copy jsbeautifyrc
+		this.fs.copy(
+			this.templatePath('_jsbeautifyrc'),
+			this.destinationPath('.jsbeautifyrc')
+		);
+
+		// copy jshintrc
+		this.fs.copy(
+			this.templatePath('_jshintrc'),
+			this.destinationPath('.jshintrc')
 		);
 
 		// copy gulpfile.js
@@ -108,7 +120,7 @@ module.exports = generators.Base.extend({
 		this.fs.copyTpl(
 			this.templatePath('_README.md'),
 			this.destinationPath('README.md'),
-			{ 
+			{
 				appname: this.props.appname,
 				appdescription: this.props.appdescription,
 				appversion: this.props.appversion,
@@ -120,38 +132,35 @@ module.exports = generators.Base.extend({
 		this.fs.copyTpl(
 			this.templatePath('_package.json'),
 			this.destinationPath('package.json'),
-			{ 
+			{
 				appname: this.props.appname,
 				appdescription: this.props.appdescription,
 				appversion: this.props.appversion,
 				repo_url: this.props.repo_url
 			}
 		);
-		
+
 	},
 	install: function() {
 
 		// install dependencies if we choose
 		if (this.props.installDependencies) {
-			// run npm install and bower install
-			this.installDependencies();
-
-			// run bundle install
-			this.spawnCommand('bundle', ['install']);
+			// run npm install
+			this.npmInstall();
 		}
 
 		// if we have a repo_url, automatically intialize git and add the origin remote
 		if (this.props.repo_url) {
-			this.spawnCommand('git', ['init']).on('close', ()=> {
+			this.spawnCommand('git', ['init']).on('close', function() {
 				this.spawnCommand('git', ['remote', 'add', 'origin', this.props.repo_url]);
 			});
 		} else {
 			// without a repo_url, atleast git init
 			this.spawnCommand('git', ['init']);
 		}
-		
+
 	},
 	end: function() {
-		
+
 	}
 });

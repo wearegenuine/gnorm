@@ -1,18 +1,23 @@
 'use strict';
 
-var config = require('./config').scripts;
-var webpack = require('webpack');
+var config = require('./config').scripts,
+    path = require('path'),
+    webpack = require('webpack');
 
 module.exports = {
 	cache: true,
+	context: path.resolve('app'),
 	entry: {
-		app: config.src,
+		app: './scripts/app',
+		fontloader: './scripts/fontloader',
 	},
 	output: {
 		path: config.dest,
+		// path: path.resolve('build'),
 		publicPath: '/scripts/',
-		filename: '[name].js',
-		chunkFilename: '[name].bundle.js' // name || id || chunkhash
+		filename: '[name].built.js',
+		chunkFilename: '[name].bundle.js', // name || id || chunkhash
+		libraryTarget: 'umd'
 	},
 	module: {
 		preLoaders: [
@@ -24,9 +29,12 @@ module.exports = {
 		],
 		loaders: [
 			{
-				test: /\.jsx?$/,
+				test: /\.js$|\.jsx$/,
 				exclude: [/libs/, /node_modules/],
-				loader: 'babel-loader'
+				loader: 'babel-loader',
+				query: {
+          presets: ['es2015']
+        }
 			}
 		]
 	},

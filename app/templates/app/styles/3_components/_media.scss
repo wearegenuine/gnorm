@@ -1,0 +1,125 @@
+.media{
+  margin-bottom: 24px;
+  @media print{
+    page-break-inside: avoid;
+  }
+  &--no-bg{
+    background-color: transparent;
+  }
+  &__text{
+    position: relative;
+    text-align: center;
+    > *:first-child{
+      margin-top: 0;
+    }
+    > ul[data-display="table"]:first-child{
+      margin-top: 10px;
+    }
+    > *:last-child{
+      margin-bottom: 0;
+    }
+    p{
+      margin: 0;
+    }
+  }
+  &__image{
+    position: relative;
+    > div{
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      left: 0;
+      position: absolute;
+      top: 0 ;
+      width: 100%;
+    }
+  }
+  &__mandala{
+    height: 0;
+    &:before{
+      background-color: white;
+      color: #91a9c4;
+      border-radius: 32px;
+      font-size: 26px;
+      font-size: 2.6rem;
+      height: 34px;
+      left: 50%;
+      line-height: 34px;
+      margin-left: -17px;
+      position: absolute;
+      top: -17px;
+      width: 33px;
+    }
+  }
+  &__tag{
+    background-color: black;
+    color: white;
+    display: inline-block;
+    @include font-size(15,15);
+    left: 0;
+    padding: 5px 10px;
+    position: absolute;
+    text-transform: uppercase;
+    top: 15px;
+    z-index: 1;
+    &:before, &:after{
+      content: '';
+      background-color: transparent;
+      border-style: solid;
+      display: block;
+      height: 0;
+      position: absolute;
+      width: 0;
+    }
+    //dark triangle
+    &:before{
+      border-color: #5b5350 transparent transparent transparent;
+      border-width: 8px 20px 0 0;
+      bottom: -8px;
+      right: 0;
+    }
+    //light triangle
+    &:after{
+      border-color: transparent black transparent transparent;
+      border-width: 7px 17px 2px 0;
+      bottom: -10px;
+      right: 4px;
+    }
+  }
+  &__testimonial-type{
+    display: block;
+  }
+}
+[data-orientation="horizontal"]{
+  display: table;
+  .media__image, .media__text{
+    float: none;
+    display: table-cell;
+    vertical-align: middle;
+    position: relative;
+  }
+  .media__image{
+    height: 100%;
+    overflow: hidden;
+  }
+  .media__text{
+    padding: 0 15px;
+  }
+  .media__image + .media__text{
+    padding: 15px;
+  }
+  .row{
+    display: table-row;
+    position: relative;
+    width: 100%;
+    &:before, &:after{
+      display: none;
+    }
+  }
+}
+[data-orientation="vertical"]{
+  .media__text{
+    padding: 15px 20px 24px;
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "title": "Front End Template Directory",
+  "utilityLinks": [
+      {
+        "name": "Grid Structure",
+        "link": "/_grid.html"
+      },
+      {
+        "name": "Base Style Guide",
+        "link": "/_styleguide.html"
+      }
+  ],
+  "layoutLinks": [
+    {
+      "name": "T01 - Homepage",
+      "link": "t01-homepage.html"
+    },
+    {
+      "name": "T02 - Inner Page",
+      "link": "t02-inner-page.html"
+    }
+  ]
+}

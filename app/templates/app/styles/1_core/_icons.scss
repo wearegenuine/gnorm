@@ -1,3 +1,8 @@
+///*------------------------------------*\
+//    #CORE - ICONS
+//\*------------------------------------*/
+/* Note: Will be replaced once SVG feature branch is completed */
+
 [class^='icon-'],
 [class*=' icon-'] {
   font-family: 'icomoon';
@@ -6,121 +11,216 @@
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
-  line-height: 1;
+  font-size: 2rem;
   // Better Font Rendering
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  &:before {
+    font-size: inherit;
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 1.5rem;
+  }
 }
 
-.icon-heart:before {
-  content: '\e63b';
+.icon {
+  font-size: 2rem;
 }
 
-.icon-schedule:before {
-  content: '\e63f';
+%icon-heart,
+.icon-heart{
+  &:before{
+    content: '\e63b';
+  }
 }
 
-.icon-user:before {
-  content: '\e640';
+%icon-schedule,
+.icon-schedule{
+  &:before{
+    content: '\e63f';
+  }
 }
 
-.icon-arrow-d:before {
-  content: '\e600';
+%icon-user,
+.icon-user{
+  &:before{
+    content: '\e640';
+  }
 }
 
-.icon-arrow-l:before {
-  content: '\e601';
+%icon-arrow-d,
+.icon-arrow-d{
+  &:before{
+    content: '\e600';
+  }
 }
 
-.icon-arrow-r:before {
-  content: '\e602';
+%icon-arrow-l,
+.icon-arrow-l{
+  &:before{
+    content: '\e601';
+  }
 }
 
-.icon-arrow-u:before {
-  content: '\e603';
+%icon-arrow-r,
+.icon-arrow-r{
+  &:before{
+    content: '\e602';
+  }
 }
 
-.icon-bracket-d:before {
-  content: '\e604';
+%icon-arrow-u,
+.icon-arrow-u{
+  &:before{
+    content: '\e603';
+  }
 }
 
-.icon-bracket-l:before {
-  content: '\e605';
+%icon-bracket-d,
+.icon-bracket-d{
+  &:before{
+    content: '\e604';
+  }
 }
 
-.icon-bracket-r:before {
-  content: '\e606';
+%icon-bracket-l,
+.icon-bracket-l{
+  &:before{
+    content: '\e605';
+  }
 }
 
-.icon-bracket-u:before {
-  content: '\e607';
+%icon-bracket-r,
+.icon-bracket-r{
+  &:before{
+    content: '\e606';
+  }
 }
 
-.icon-cart:before {
-  content: '\e608';
+%icon-bracket-u,
+.icon-bracket-u{
+  &:before{
+    content: '\e607';
+  }
 }
 
-.icon-chat:before {
-  content: '\e609';
+%icon-cart,
+.icon-cart{
+  &:before{
+    content: '\e608';
+  }
 }
 
-.icon-facebook:before {
-  content: '\e60a';
+%icon-chat,
+.icon-chat{
+  &:before{
+    content: '\e609';
+  }
 }
 
-.icon-home:before {
-  content: '\e60c';
+%icon-facebook,
+.icon-facebook{
+  &:before{
+    content: '\e60a';
+  }
 }
 
-.icon-info:before {
-  content: '\e60d';
+%icon-home,
+.icon-home{
+  &:before{
+    content: '\e60c';
+  }
 }
 
-.icon-instagram:before {
-  content: '\e60e';
+%icon-info,
+.icon-info{
+  &:before{
+    content: '\e60d';
+  }
 }
 
-.icon-mail:before {
-  content: '\e60f';
+%icon-instagram,
+.icon-instagram{
+  &:before{
+    content: '\e60e';
+  }
 }
 
-.icon-pinterest:before {
-  content: '\e611';
+%icon-mail,
+.icon-mail{
+  &:before{
+    content: '\e60f';
+  }
 }
 
-.icon-play:before {
-  content: '\e612';
+%icon-pinterest,
+.icon-pinterest{
+  &:before{
+    content: '\e611';
+  }
 }
 
-.icon-resources:before {
-  content: '\e613';
+%icon-play,
+.icon-play{
+  &:before{
+    content: '\e612';
+  }
 }
 
-.icon-search:before {
-  content: '\e614';
+%icon-resources,
+.icon-resources{
+  &:before{
+    content: '\e613';
+  }
 }
 
-.icon-solid-arrow-d-u:before {
-  content: '\e615';
+%icon-search,
+.icon-search{
+  &:before{
+    content: '\e614';
+  }
 }
 
-.icon-solid-arrow-d:before {
-  content: '\e616';
+%icon-solid-arrow-d-u,
+.icon-solid-arrow-d-u{
+  &:before{
+    content: '\e615';
+
+  }
 }
 
-.icon-solid-arrow-l:before {
-  content: '\e617';
+%icon-solid-arrow-d,
+.icon-solid-arrow-d{
+  &:before{
+    content: '\e616';
+  }
 }
 
-.icon-solid-arrow-r:before {
-  content: '\e618';
+%icon-solid-arrow-l,
+.icon-solid-arrow-l{
+  &:before{
+    content: '\e617';
+  }
 }
 
-.icon-solid-arrow-u:before {
-  content: '\e619';
+%icon-solid-arrow-r,
+.icon-solid-arrow-r{
+  &:before{
+    content: '\e618';
+  }
 }
 
-.icon-twitter:before {
-  content: '\e61a';
+%icon-solid-arrow-u,
+.icon-solid-arrow-u{
+  &:before{
+    content: '\e619';
+  }
 }
 
+%icon-twitter,
+.icon-twitter{
+  &:before{
+    content: '\e61a';
+  }
+}

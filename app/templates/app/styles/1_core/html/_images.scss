@@ -1,0 +1,21 @@
+///*------------------------------------*\
+//    #CORE/HTML - IMAGES
+//\*------------------------------------*/
+//  * 1. Fluid images for responsive purposes.
+//  * 2. Offset `alt` text from surrounding copy.
+//  * 3. Setting `vertical-align` removes the whitespace that appears under `img`
+//	*    elements when they are dropped into a page as-is. Safer alternative to
+//	*    using `display: block;`.
+//  * 4. Maintain aspect ratio
+//  * 5. Why is a border showing up in IE9 by default? Regardless, this border: 0
+//	*    gets rid of that globally on all vanilla img tags.
+//  */
+
+img {
+    width: 100%; /* [1] */
+    font-style: italic; /* [2] */
+    vertical-align: middle; /* [3] */
+    height: auto; /* [4] */
+    display: block;
+    border: 0; /* [5] */
+}

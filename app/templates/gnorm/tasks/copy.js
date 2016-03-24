@@ -12,7 +12,7 @@ gulp.task('copy:scripts', function() {
     .pipe(gulp.dest(config.scripts.libsDest));
 });
 
-gulp.task('copy:fonts', function() {
+gulp.task('copy:fonts', ['fonts'], function() {
   return gulp.src(config.fonts.src)
     .pipe(changed(config.fonts.dest))
     .pipe(gulp.dest(config.fonts.dest));

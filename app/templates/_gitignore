@@ -4,6 +4,7 @@ node_modules
 .tmp
 *.zip
 .DS_Store
+$.DS_Store
 npm-debug.log
 Gemfile.lock
 build

@@ -4,9 +4,12 @@
 
 ## Dependencies
 * [Node JS](http://nodejs.org/)
-* [Ruby](https://www.ruby-lang.org/en/)
-* [Bundler (Ruby Gem)](http://bundler.io/)
 * [Gulp](http://gulpjs.com/)
+
+## Installation
+Once you have installed the above dependencies:
+
+1. `cd` into the root of the new project folder and run `npm install` from the command line
 
 ## Running
 From the root of the project, several commands can be issued from terminal:
@@ -26,7 +29,6 @@ From the root of the project, several commands can be issued from terminal:
 * `.jshintrc`: The configuration file that dictates syntactical rules for JS linting. These should be followed closely.
 * `.jsbeautifyrc`: The configuration file that can be used with Sublime Text's [HTML-CSS-JS Prettify](https://packagecontrol.io/packages/HTML-CSS-JS%20Prettify) and Atom's [atom-beautify](https://atom.io/packages/atom-beautify) plugins.  Allows you to format your HTML, CSS, JavaScript, and JSON code. These plugins look for a `.jsbeautifyrc` file in the same directory as the source file you're prettifying (or any directory above if it doesn't exist, or in your home folder if everything else fails) and uses those options along the default ones.
 * `.scss-lint.yml`: The configuration file for "linting" Sass/SCSS files.  Not currently enforced during build-time, but can be used with Sublime Text's [SublimeLinter](http://sublimelinter.readthedocs.org/en/latest/) plugin along with [Sublime​Linter-contrib-scss-lint](https://packagecontrol.io/packages/SublimeLinter-contrib-scss-lint), or Atom's [atom-lint](https://atom.io/packages/atom-lint) and [linter-scss-lint](https://atom.io/packages/linter-scss-lint) (among others).
-* `Gemfile`: The package file that contains the project's gem dependencies. These are installed when you run `bundle install`.
 * `gulpfile.js`: This references all of the tasks in `gulp/tasks/`. Tasks are broken apart for organizational purposes and referenced from this root file when you run `gulp`.
 * `package.json`: Contains the project's Node dependencies. Modules specified in this files are installed into `node_modules` when you run `npm install`.
 * `README.md`: You're reading it.
@@ -36,19 +38,32 @@ To encourage organization, scalability, and code-reuse, we generally take an [At
 
 ## Usage
 #### Writing HTML
+
+Init utilizes twig.js for creating templates and reusable components. Twig provides the ability to:
+
+* Write a piece of code once and reuse it in multiple places.
+* Use conditional code to allow for variation in the template or component.
+* Use json data to populate content of each template, which allows the use of the same component partial within one or multiple templates with different content for each instance.
+
 Your HTML lives in the `app` folder, and can contain references to reusable includes (which live in `app/includes/`). For example:
 
-    //= include includes/1_core/head.html
+    {% include 'includes/3_components/media--person-card.twig' %}
 
-This allows you to write a piece of code once and reuse it in multiple places. When Gulp runs, it takes these includes and compiles the full HTML into the `build` folder.
+Each main template in the `app` folder also requires a `json` file that includes any data utilized in the template. These data files live in the `app/json` folder and must use the same name as the template file.
+
+When Gulp runs, it takes the includes and data, and compiles the full HTML into the `build` folder.
 
 _Note: The paths in which these includes are referenced are relative to the HTML file you are authoring. If you include an include from another include, that path will need to be prefixed with `../` accordingly._
+
+Want to know how to get the most out of twig? [Check out the documentation](http://twig.sensiolabs.org/documentation).
+
+*Note: Init uses [twig.js](https://github.com/justjohn/twig.js/wiki) which is an implementation of the Twig PHP templating language, so some features in the documentation may not be available. Check the [implementation support for twig.js](https://github.com/justjohn/twig.js/wiki/Implementation-Notes) to verify feature support.*
 
 #### Writing Sass
 ##### Sass Structure
 Your styles live in the `app/styles/sass` folder. This folder is organized atomically:
 
-* `screen.scss`: This contains globbing patterns that `@include` the Gem dependencies and partials contained in the following folders
+* `screen.scss`: This contains globbing patterns that `@include` tools and partials contained in the following folders
 * `0_utility/`: This contains font, helper, mixin, and variable declarations.
 * `1_core/`: All bare (classless) HTML is styled in the `html-elements` folder. Icons are specified in the `_icons.scss` partial and the site's grid system is specified in the `_layout.scss` partial.
 * `2_pieces/`: This is where your "Atoms" live.
@@ -56,15 +71,58 @@ Your styles live in the `app/styles/sass` folder. This folder is organized atomi
 * `4_regions/`: This is where your "Organisms" live.
 * `5_pages/`: This is where your "Layouts" live.
 
+##### Using the Grid
+###### Susy Defaults
+Init comes with a customized version of Susy grid that gives more control with responsive layouts. The Susy default object can be found in `app/styles/1_core/_grid.scss` and default grid can be viewed by going to the 'Grid Structure' page on your localhost. The default Susy settings Init uses are:
+
+```css
+$susy: (
+  columns: 12,
+  global-box-sizing: border-box,
+  gutters:$spacing-unit/12rem
+);
+```
+
+_Note: Uncomment the `debug{}` to apply the columns
+_Note: Refer to [Susy Settings](http://susydocs.oddbird.net/en/latest/settings) for information on Init's default settings_
+
+###### Grid Classes
+Init's grid on compile will provide a couple of helpful grid classes by default:
+
+* `span-#`: This is the standard Susy classes. For example `span-4`.
+** `span-#.center`: The `span-#` will automatically have a `center` modifier class associated with them. For example `span-4.center`.
+* `push-#`: This is the standard Susy [Push](http://susydocs.oddbird.net/en/latest/toolkit/#pre) modifier. The number value will be the amount of columns the element is pushed to the right. For example `push-4`.
+* `pull-#`: This is the standard Susy [Pull](http://susydocs.oddbird.net/en/latest/toolkit/#pull) modifier. The number value will be the amount of columns the element is pushed to the left. For example `pull-4`.
+* `span-#of#`: This is another version of class syntax that the grid by default will support. For example `span-1of2`.
+** `span-#of#.center`: The `span-#of#` will automatically have a `center` modifier class associated with them. For example `span-1of2.center`.
+
+###### Grid Classes with Responsive Modifiers
+These classes and behavior are largely relatively default Susy. Init's grid system has been updated to be more robust for responsive development.
+By default, Init's grid will compile with responsive modifiers that will alter the grid by targeting certain breakpoint. The breakpoints are defined at the top of the `_grid.scss` file in the `$breakpoint-has-widths` list. Init's default breakpoints options are `('mobile', 'tablet', 'desktop')`. Upon sass compile these list values will be used to create the grid "@" modifiers. For example, to change a column's width to span 4 columns on desktop and higher we just need to add the class `span-4@desktop`.
+
+_Note: We develop mobile first, so all the breakpoints will reflect outward from mobile_
+
+Init's grid on compile will provide a couple of helpful grid classes by default:
+
+* `span-#@BREAKPOINT`: This is the standard Susy classes. For example `span-4` on sizes larger than the BREAKPOINT.
+** `span-#@BREAKPOINT.center`: The `span-#` will automatically have a `center` modifier class associated with them. For example `span-4.center` on sizes larger than the BREAKPOINT.
+* `push-#@BREAKPOINT`: This is the standard Susy [Push](http://susydocs.oddbird.net/en/latest/toolkit/#pre) modifier. The number value will be the amount of columns the element is pushed to the right. For example `push-4` on sizes larger than the BREAKPOINT.
+* `pull-#@BREAKPOINT`: This is the standard Susy [Pull](http://susydocs.oddbird.net/en/latest/toolkit/#pull) modifier. The number value will be the amount of columns the element is pushed to the left. For example `pull-4` on sizes larger than the BREAKPOINT.
+* `span-#of#@BREAKPOINT`: This is another version of class syntax that the grid by default will support. For example `span-1of2` on sizes larger than the BREAKPOINT.
+** `span-#of#@BREAKPOINT.center`: The `span-#of#` will automatically have a `center` modifier class associated with them. For example `span-1of2.center` on sizes larger than the BREAKPOINT.
+
+_Note: In the `_grid.scss` there is a `$suffix` variable that will disable the responsive modifiers on compile. By default it is set to `true` that will include it in the compiled code, to remove this feature update this value to `false` (or '')_
+
+_Note: There is a `.remove-center` class that can be added to markup or extended in CSS to overwrite the `.center`_
+
 ##### Changing/Adding Fonts
 To prevent render blocking, Init leverages [Font Face Observer](https://github.com/bramstein/fontfaceobserver). Init comes with a font set of Roboto to demonstrate how fonts are set up using this pattern. In short, the script in `app/includes/1_core/head.html` listens for the font requests coming from `app/styles/sass/0_utility/_fonts.scss`. Using a promise, it will add a class of `fonts-loaded` to the body once the fonts have downloaded. This class is leveraged in `app/styles/sass/1_core/html-elements/_base.scss` to update the page with the custom webfonts. If you want to change or add fonts, follow these steps:
 
 1. In `app/styles/sass/0_utility/_fonts.scss`, change or add a new font making sure to include the appropriate weight. Then update your font variable(s) accordingly.
-2. In `app/includes/1_core/head.html`, create a new variable for each weight and update the weight property with the same weight you specified in step 1. 
+2. In `app/includes/1_core/head.html`, create a new variable for each weight and update the weight property with the same weight you specified in step 1.
 
 ##### Updating Icomoon Set
 Init comes with a generic font set of icons that includes common things like arrows and social chiclets. To add or edit the icon font, upload `app/fonts/icomoon/selection.json` to the [Icomoon web-app](https://icomoon.io/app/#/select). From here, you can add and remove icons, then re-export. When you re-export, make sure you save the updated `selection.json`.
-
 
 #### Writing JS
 ##### JS Structure
@@ -139,7 +197,7 @@ Init leverages JS and Sass sourcemapping for easy debugging. The sourcemaps are 
 ## Common issues
 
 #### When I run `gulp`, the command line errors out. WTF?
-Make sure you've installed _ALL_ dependencies specified above. Also, make sure you have up-to-date versions of Ruby and Node.
+Make sure you've installed _ALL_ dependencies specified above. Also, make sure you have up-to-date versions of Node.
 
 #### Why is Gulp not picking up on changes that I made to a file?
-The `watch` task only picks up on changes made to files that existed when the task was started. When you edit a Gulp task, a config file, or add any new file to the `app` folder, you must stop and restart Gulp.
+The `watch` task only picks up on changes made to files that existed when the task was started. When you edit a Gulp task, a config file, a twig `json` file, or add any new file to the `app` folder, you must stop and restart Gulp.

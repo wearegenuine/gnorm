@@ -97,11 +97,11 @@ gulp.task('create-module', function() {
     .pipe(gulp.dest('./app/scripts/modules'));
 
   // Scaffold the template files into the module folder
-  gulp.src('./gulp/templates/loader.js')
+  gulp.src('./gnorm/templates/loader.js')
     .pipe(rename(argv.name + '.load.js'))
     .pipe(template(argv))
     .pipe(gulp.dest('./app/scripts/modules/' + argv.name));
-  gulp.src('./gulp/templates/module.js')
+  gulp.src('./gnorm/templates/module.js')
     .pipe(rename(argv.name + '.main.js'))
     .pipe(template(argv))
     .pipe(gulp.dest('./app/scripts/modules/' + argv.name));

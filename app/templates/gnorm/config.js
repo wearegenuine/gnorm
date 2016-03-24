@@ -16,21 +16,9 @@ module.exports = {
 			'!' + dest + '/**.map'
 		]
 	},
-	compass: {
+	styles: {
 		src: src + '/styles/**/*.{sass,scss}',
-		dest: dest + '/styles',
-		settings: {
-			bundleExec: true,
-			css: dest + '/styles',
-			debug: false,
-			font: dest + '/fonts',
-			// image: src + '/images',
-			relative: true,
-			require: ['breakpoint','sass-globbing', 'susy', 'support-for', 'normalize-scss'],
-			sass: src + '/styles',
-			sourcemap: true,
-			style: 'compressed'
-		}
+		dest: dest + '/styles'
 	},
 	favicon: {
 		src: src + '/favicon.ico',
@@ -73,5 +61,11 @@ module.exports = {
 				}
 			}
 		}
+	},
+	twig: {
+		src: src + '/*.twig',
+		watchSrc: src + '/**/*.twig',
+		dest: dest,
+		data: '../.' + src + '/json/'
 	}
 };

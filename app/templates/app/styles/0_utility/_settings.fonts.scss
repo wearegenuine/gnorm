@@ -1,0 +1,65 @@
+///*------------------------------------*\
+//    #UTILITY - FONTS
+//\*------------------------------------*/
+
+// =============================================================================
+// String Replace
+// =============================================================================
+@function str-replace($string, $search, $replace: "") {
+    $index: str-index($string, $search);
+    @if $index {
+        @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+    @return $string;
+}
+
+// =============================================================================
+// Font Face
+// =============================================================================
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: woff2 woff ttf) {
+    $src: null;
+    $extmods: (
+        eot: "?",
+        svg: "#" + str-replace($name, " ", "_")
+    );
+    $formats: (
+        otf: "opentype",
+        ttf: "truetype"
+    );
+    @each $ext in $exts {
+        $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+        $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+        $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+    }
+    @font-face {
+        font-family: quote($name);
+        font-style: $style;
+        font-weight: $weight;
+        src: $src;
+    }
+}
+
+@include font-face($name: 'Roboto', $path: '/fonts/roboto/roboto-regular', $weight: 400, $style: normal);
+
+$fallbackSans: Helvetica, Arial, sans-serif;
+$sans: 'Roboto', $fallbackSans;
+$icomoon: 'icomoon';
+
+
+// ========================================================================= //
+//  Web Fonts
+//
+//
+//  FOR REFERENCE: Font-weights by numeric value / name.
+//  Side note: it is recommended that we to use the numeric value here to help clarify exactly which weight is getting referenced to.
+//    100 = thin
+//    200 = extra-light
+//    300 = light
+//    400 = normal, book
+//    500 = medium
+//    600 = demi-bold / semi-bold
+//    700 = bold
+//    800 = heavy / extra-bold / heavy
+//    900 = black / extra-black / ultra-black
+//
+// ========================================================================= //

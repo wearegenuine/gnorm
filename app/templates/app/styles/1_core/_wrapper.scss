@@ -1,0 +1,32 @@
+///*------------------------------------*\
+//    #CORE - WRAPPER
+//\*------------------------------------*/
+/* Note: The ":root" selector allows you to target the highest-level "parent"
+ * element in the DOM, or document tree.
+ * (https://css-tricks.com/almanac/selectors/r/root)
+ */
+
+:root {
+  position: relative;
+  &:before {
+    background-image: linear-gradient(to bottom, black 0, rgba(255,255,255,0) 1px);
+    background-repeat: repeat-y;
+    background-size: 100% .6em;
+    bottom: 0;
+    content: "";
+    left: 0;
+    opacity: .2;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 1280px;
+  padding-right: $spacing-unit;
+  padding-left: $spacing-unit;
+  width: 100%;
+}

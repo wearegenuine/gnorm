@@ -1,0 +1,36 @@
+///*------------------------------------*\
+//    #CORE/HTML - FORMS
+//\*------------------------------------*/
+
+form {}
+
+button {}
+
+select,
+input {
+  @include font-size(16, 24);
+}
+
+input[type='submit'],
+input[type='radio'],
+input[type='checkbox'] {
+  width: auto;
+}
+
+input[type='submit'] {}
+
+input[type='text'] {}
+
+input[type='password'] {}
+
+input[type='radio'] {}
+
+input[type='checkbox'] {}
+
+label {
+  display: block;
+}
+
+textarea {}
+
+select {}
