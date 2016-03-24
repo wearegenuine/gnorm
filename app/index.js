@@ -151,8 +151,10 @@ module.exports = generators.Base.extend({
 
 		// if we have a repo_url, automatically intialize git and add the origin remote
 		if (this.props.repo_url) {
+			var that = this;
+			var spawnRepo = this.props.repo_url;
 			this.spawnCommand('git', ['init']).on('close', function() {
-				this.spawnCommand('git', ['remote', 'add', 'origin', this.props.repo_url]);
+				that.spawnCommand('git', ['remote', 'add', 'origin', spawnRepo]);
 			});
 		} else {
 			// without a repo_url, atleast git init
