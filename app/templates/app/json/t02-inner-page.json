@@ -1,36 +1,25 @@
 {
   "title": "T02 - Inner Page Template",
-  "personCards": [
+  "exampleCards": [
     {
-      "modifierClasses": "media--person-card-w-image",
-      "hasImage" : true,
-      "hasThumb": false,
-      "image": "http://placehold.it/600x503",
+      "image": "https://placeholdit.imgix.net/~text?txtsize=45&bg=70b0f0&txtclr=eee%26text%3Dbasic%2Bcard&txt=BASIC+CARD&w=600&h=600",
       "name": "Michael D.",
       "text": "I am so thankful for Kripalu for providing a space."
     },
     {
-      "modifierClasses": "media--person-card-w-thumb",
-      "hasImage": false,
-      "hasThumb": true,
-      "thumbnail": "http://placehold.it/235x235",
+      "image": "https://placeholdit.imgix.net/~text?txtsize=45&bg=70b0f0&txtclr=eee%26text%3Dbasic%2Bcard&txt=BASIC+CARD&w=600&h=600",
       "name": "Tiffany Cruikshank",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibenadum laoreet."
+      "text": "I am so thankful for Kripalu for providing a space."
     },
     {
-      "hasimage": false,
-      "hasThumb": false,
-      "name": "Joe Smith",
-      "text": "Aenean euismod bibenadum laoreet."
+      "image": "https://placeholdit.imgix.net/~text?txtsize=45&bg=70b0f0&txtclr=eee%26text%3Dbasic%2Bcard&txt=BASIC+CARD&w=600&h=600",
+      "name": "Tiffany M.",
+      "text": "I am so thankful for Kripalu for providing a space."
     },
     {
-      "modifierClasses": "media--person-card-w-image media--person-card-w-thumb",
-      "hasImage": true,
-      "hasThumb": true,
-      "image": "http://placehold.it/600x503/cc0000",
-      "thumbnail": "http://placehold.it/235x235/cc0000",
-      "name": "Slap Silly",
-      "text": "Consectetur adipiscing elit. Aenean euismod bibenadum laoreet."
+      "image": "https://placeholdit.imgix.net/~text?txtsize=45&bg=70b0f0&txtclr=eee%26text%3Dbasic%2Bcard&txt=BASIC+CARD&w=600&h=600",
+      "name": "Alan R.",
+      "text": "I am so thankful for Kripalu for providing a space."
     }
   ]
 }

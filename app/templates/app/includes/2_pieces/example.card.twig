@@ -1,0 +1,16 @@
+<!-- This example show an example of a 'for-in' loop, the 'exampleCards' objects that this loop utilizes is from the t02-inner-page json (json/t02-inner-page.json-->
+{% for item in exampleCards %}
+	<!-- This is an example of a 'if' conditional in twig. This conditional utilizes a loop variable (loop.index) and a 'with' variable that is declared on the twig include, refer to uncludes/3_components/example.card-container.twig (for more information on loop variables refer to http://twig.sensiolabs.org/doc/tags/for.html) -->
+  <div class="span-3 example-card" {% if loop.index == loopIndex %} style="background-color:{{ colorValue }}"{% endif %}>
+    <img src="{{ item.image }}" />
+    <!-- This variable is coming from the 'exampleCards' object in the json -->
+    <h3>{{ item.name }}</h3>
+    {% if loop.index == loopIndex %}
+    	<!-- This variable is being supplied through the 'with' declaration on the twig include, refer to uncludes/3_components/example.card-container.twig -->
+      <p>{{ descriptionValue }}</p>
+     <!-- This is an example of a else statement in twig -->
+    {% else %}
+      <p>{{ item.text }}</p>
+    {% endif %}
+  </div>
+{% endfor %}

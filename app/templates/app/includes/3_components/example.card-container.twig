@@ -1,0 +1,4 @@
+<!--This example shows the basic include twig template pattern with the optional 'with' attribute. The 'with' attribute allows the passing of custom values to be used inside the included twig template. In this case we are passing 'loopIndex', colorValue' and 'descriptionValue'.-->
+<div class="row example-card-container">
+	{% include '../2_pieces/example.card.twig' with {loopIndex: 2, colorValue: 'red', descriptionValue: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibenadum laoreet'} %}
+</div>

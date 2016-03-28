@@ -100,10 +100,18 @@ $columnsNumber: map-get($susy, columns);
 }
 
 @mixin grid($spanValue, $pushValue:'') {
-  width:$spanValue;
+  width:100%;
   @if $pushValue != ''{
     &.center{
-      @include push($pushValue);
+      @include push(0);
+    }
+  }
+  @include breakpoint($large-mobile) {
+    width:$spanValue;
+    @if $pushValue != ''{
+      &.center{
+        @include push($pushValue);
+      }
     }
   }
 }
