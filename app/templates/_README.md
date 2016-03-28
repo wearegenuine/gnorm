@@ -1,4 +1,5 @@
 # <%= appname %> - v<%= appversion %>
+## <%= generatorversion %>
 
 <%= appdescription %>
 

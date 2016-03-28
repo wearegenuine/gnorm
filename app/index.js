@@ -33,9 +33,10 @@ module.exports = generators.Base.extend({
 			{
 				type: 'input',
 				name: 'appname',
-				message: 'What is the project name?',
+				message: 'What is the project name (no spaces please)?',
 				default: this.appname
 			},
+
 			{
 				type: 'input',
 				name: 'appdescription',
@@ -124,16 +125,18 @@ module.exports = generators.Base.extend({
 				appname: this.props.appname,
 				appdescription: this.props.appdescription,
 				appversion: this.props.appversion,
+				generatorversion: this._globalConfig.name,
 				repo_url: this.props.repo_url
 			}
 		);
 
 		// template _package.json
+		var removeSpaces = this.props.appname.replace(/\s/g, '-');
 		this.fs.copyTpl(
 			this.templatePath('_package.json'),
 			this.destinationPath('package.json'),
 			{
-				appname: this.props.appname,
+				appname: removeSpaces,
 				appdescription: this.props.appdescription,
 				appversion: this.props.appversion,
 				repo_url: this.props.repo_url
