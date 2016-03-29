@@ -10,6 +10,10 @@ gulp.task('twig', function () {
         .pipe(data(function(file){
           return require(config.data + path.basename(file.path, '.twig') + '.json');
         }))
-        .pipe(twig())
+        .pipe(twig({
+          onError: function(){
+            //Emits error without killing the server
+          }
+        }))
         .pipe(gulp.dest(config.dest));
 });
