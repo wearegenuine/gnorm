@@ -60,6 +60,99 @@ Want to know how to get the most out of twig? [Check out the documentation](http
 
 *Note: Init uses [twig.js](https://github.com/justjohn/twig.js/wiki) which is an implementation of the Twig PHP templating language, so some features in the documentation may not be available. Check the [implementation support for twig.js](https://github.com/justjohn/twig.js/wiki/Implementation-Notes) to verify feature support.*
 
+#### Accessibility
+When developing we should be aware of how our sites preform for users with accessibility needs. Our sites should be level AA compliant, refer to [Accessibility Checklist](http://webaim.org/standards/wcag/checklist) and [Some best practices for accessibility](https://www.webaccessibility.com/best_practices.php) for more information on level AA. We recommend using these tools to help check the accessibility of sites:
+
+* [Cythina Says](http://www.cynthiasays.com) allows users to test individual pages on their website and provides feedback in a reporting format that is clear and easy to understand.
+* [Wave Chrome Extension](https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh?hl=en-US) is a google extension that provides visual feedback about the accessibility of your web content by injecting icons and indicators into your page.
+* [Contrast Checker](http://webaim.org/resources/contrastchecker) is a great tool to test the contrast of text to background within your website
+* [ChromeVox screenreader](https://chrome.google.com/webstore/detail/chromevox/kgejglhpjiefppelpmljglcjbhoiplfn?hl=en) is an extension that is a screenreader allowing you to understand how your site will perform. Please refer to [How to use ChromeVox](http://www.chromevox.com) for more information on how to use ChromeVox.
+
+##### Aria Basics
+[WAI-ARIA](https://www.w3.org/TR/WCAG20), the **Accessible Rich Internet Applications** Suite, defines a way to make Web content and Web applications more accessible to people with accessibility needs. For background on ARIA and extensive examples on how and where to use them, refer to the [ARIA in HTML](https://specs.webplatform.org/html-aria/webspecs/master) page. For practical examples of working with ARIA can be found [here](http://heydonworks.com/practical_aria_examples) and information on browser support for the ARIA tags can be found [here](http://caniuse.com/#feat=wai-aria).
+
+The follow ARIA tags are tags the baseline accessibility tags that we recommend using while writing your HTML. Each will have markup example on its use,
+
+
+* `role="navigation":` A collection of navigational elements (usually links) for navigating the document or related documents.
+
+```html
+<nav role="navigation">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Landing Page</a></li>
+    <li><a href="#">Inner Page</a></li>
+  </ul>
+</nav>
+```
+
+_Note: the `<nav>` element is a HTML 5 element that is not supported in all browsers, so putting the `role="navigation` makes this backwards compatible_
+
+* `role="menu":` A type of widget that offers a list of choices to the user.
+* `role="menuitem":` An option in a group of choices contained by a menu.
+
+```html
+<ul role="menu">
+  <li><a href="#" role="menuitem">Sub Menu</a></li>
+  <li><a href="#" role="menuitem">Sub Menu</a></li>
+  <li><a href="#" role="menuitem">Sub Menu</a></li>
+</ul>
+```
+
+* `aria-haspopup="true":` Indicates that the element has a popup context menu or sub-level menu.
+
+```html
+<a aria-haspopup="true">Menu Item</a>
+<ul class="hidden-sub-menu">
+  <li><a>Sub Menu Item</a></li>
+  <li><a>Sub Menu Item</a></li>
+  <li><a>Sub Menu Item</a></li>
+</ul>
+```
+
+_Note: this aria tag should only be used for a hidden menu_
+_Note: the role="menu" and role="menuitem" have been omitted from this example for clarity purposes_
+
+* `role="main":` The main content of a document.
+
+```html
+<div role="main">
+  <h1>Page title</h1>
+  <p>Page description</p>
+  ...
+</div>
+```
+
+* `role="tab":` A grouping label providing a mechanism for selecting the tab content that is to be rendered to the user.
+* `role="tablist":` A list of tab elements, which are references to tabpanel elements.
+* `role="tabpanel":` A container for the resources associated with a tab, where each tab is contained in a tablist.
+
+```html
+<div role="tab">
+  <ul role="tablist">
+    <a>Click here to change tabs</a>
+  </ul>
+  <div role="tabpanel">
+    <p>This is the tab content that will show when the tab is clicked</p>
+  </div>
+</div>
+```
+
+* `role="button":` An input that allows for user-triggered actions when clicked or pressed.
+
+```html
+<a role="button">This Link is a Button</a>
+```
+
+##### `hidden` helper class
+Init launches with a `hidden` helper class that will help hide the content of a linked icon (for example an arrow that moves a carousel). To makes this element accessible you will need to add a text within the element. To prevent this from breaking the layout we can add the class `hidden` to remove the text from the DOM visually while still allowing a screenreader to access it. The following is an example of use:
+
+```html
+<a class="hidden icon-arrow-l">View the next slide</a>
+```
+
+The text "View the next slide" will be moved off screen visually but the markup will be semantically correct.
+
 #### Writing Sass
 ##### Sass Structure
 Your styles live in the `app/styles/sass` folder. This folder is organized atomically:
@@ -91,11 +184,11 @@ _Note: Refer to [Susy Settings](http://susydocs.oddbird.net/en/latest/settings) 
 Init's grid on compile will provide a couple of helpful grid classes by default:
 
 * `span-#`: This is the standard Susy classes. For example `span-4`.
-** `span-#.center`: The `span-#` will automatically have a `center` modifier class associated with them. For example `span-4.center`.
+* `span-#.center`: The `span-#` will automatically have a `center` modifier class associated with them. For example `span-4.center`.
 * `push-#`: This is the standard Susy [Push](http://susydocs.oddbird.net/en/latest/toolkit/#pre) modifier. The number value will be the amount of columns the element is pushed to the right. For example `push-4`.
 * `pull-#`: This is the standard Susy [Pull](http://susydocs.oddbird.net/en/latest/toolkit/#pull) modifier. The number value will be the amount of columns the element is pushed to the left. For example `pull-4`.
 * `span-#of#`: This is another version of class syntax that the grid by default will support. For example `span-1of2`.
-** `span-#of#.center`: The `span-#of#` will automatically have a `center` modifier class associated with them. For example `span-1of2.center`.
+* `span-#of#.center`: The `span-#of#` will automatically have a `center` modifier class associated with them. For example `span-1of2.center`.
 
 ###### Grid Classes with Responsive Modifiers
 These classes and behavior are largely relatively default Susy. Init's grid system has been updated to be more robust for responsive development.
@@ -106,11 +199,11 @@ _Note: We develop mobile first, so all the breakpoints will reflect outward from
 Init's grid on compile will provide a couple of helpful grid classes by default:
 
 * `span-#@BREAKPOINT`: This is the standard Susy classes. For example `span-4` on sizes larger than the BREAKPOINT.
-** `span-#@BREAKPOINT.center`: The `span-#` will automatically have a `center` modifier class associated with them. For example `span-4.center` on sizes larger than the BREAKPOINT.
+* `span-#@BREAKPOINT.center`: The `span-#` will automatically have a `center` modifier class associated with them. For example `span-4.center` on sizes larger than the BREAKPOINT.
 * `push-#@BREAKPOINT`: This is the standard Susy [Push](http://susydocs.oddbird.net/en/latest/toolkit/#pre) modifier. The number value will be the amount of columns the element is pushed to the right. For example `push-4` on sizes larger than the BREAKPOINT.
 * `pull-#@BREAKPOINT`: This is the standard Susy [Pull](http://susydocs.oddbird.net/en/latest/toolkit/#pull) modifier. The number value will be the amount of columns the element is pushed to the left. For example `pull-4` on sizes larger than the BREAKPOINT.
 * `span-#of#@BREAKPOINT`: This is another version of class syntax that the grid by default will support. For example `span-1of2` on sizes larger than the BREAKPOINT.
-** `span-#of#@BREAKPOINT.center`: The `span-#of#` will automatically have a `center` modifier class associated with them. For example `span-1of2.center` on sizes larger than the BREAKPOINT.
+* `span-#of#@BREAKPOINT.center`: The `span-#of#` will automatically have a `center` modifier class associated with them. For example `span-1of2.center` on sizes larger than the BREAKPOINT.
 
 _Note: In the `_grid.scss` there is a `$suffix` variable that will disable the responsive modifiers on compile. By default it is set to `true` that will include it in the compiled code, to remove this feature update this value to `false` (or '')_
 
