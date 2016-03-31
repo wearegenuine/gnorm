@@ -32,10 +32,6 @@ module.exports = {
 		src: src + '/images/**',
 		dest: dest + '/images'
 	},
-	markup: {
-		src: src + '/**/*.html',
-		dest: dest
-	},
 	scripts: {
 		all: src + '/scripts/**/*.js',
 		modules: src + '/scripts/modules',
