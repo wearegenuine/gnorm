@@ -62,6 +62,6 @@ module.exports = {
 		src: src + '/*.twig',
 		watchSrc: src + '/**/*.twig',
 		dest: dest,
-		data: '../.' + src + '/json/'
+		data: src + '/json/'
 	}
 };

@@ -1,25 +1,36 @@
 {
   "title": "T02 - Inner Page Template",
-  "exampleCards": [
+  "personCards": [
     {
-      "image": "https://placeholdit.imgix.net/~text?txtsize=45&bg=70b0f0&txtclr=eee%26text%3Dbasic%2Bcard&txt=BASIC+CARD&w=600&h=600",
+      "hasimage": false,
+      "hasThumb": false,
+      "name": "William Smith",
+      "text": "Aenean euismod bibenadum laoreet."
+    },
+    {
+      "modifierClasses": "media--person-card-w-image",
+      "hasImage" : true,
+      "hasThumb": false,
+      "image": "http://placehold.it/600x503",
       "name": "Michael D.",
       "text": "I am so thankful for Kripalu for providing a space."
     },
     {
-      "image": "https://placeholdit.imgix.net/~text?txtsize=45&bg=70b0f0&txtclr=eee%26text%3Dbasic%2Bcard&txt=BASIC+CARD&w=600&h=600",
+      "modifierClasses": "media--person-card-w-image media--person-card-w-thumb",
+      "hasImage": true,
+      "hasThumb": true,
+      "image": "http://placehold.it/600x503/cc0000",
+      "thumbnail": "http://placehold.it/235x235/000000",
+      "name": "Sally Smith",
+      "text": "Consectetur adipiscing elit. Aenean euismod bibenadum laoreet."
+    },
+    {
+      "modifierClasses": "media--person-card-w-thumb",
+      "hasImage": false,
+      "hasThumb": true,
+      "thumbnail": "http://placehold.it/235x235",
       "name": "Tiffany Cruikshank",
-      "text": "I am so thankful for Kripalu for providing a space."
-    },
-    {
-      "image": "https://placeholdit.imgix.net/~text?txtsize=45&bg=70b0f0&txtclr=eee%26text%3Dbasic%2Bcard&txt=BASIC+CARD&w=600&h=600",
-      "name": "Tiffany M.",
-      "text": "I am so thankful for Kripalu for providing a space."
-    },
-    {
-      "image": "https://placeholdit.imgix.net/~text?txtsize=45&bg=70b0f0&txtclr=eee%26text%3Dbasic%2Bcard&txt=BASIC+CARD&w=600&h=600",
-      "name": "Alan R.",
-      "text": "I am so thankful for Kripalu for providing a space."
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibenadum laoreet."
     }
   ]
 }
