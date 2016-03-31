@@ -11,7 +11,6 @@
 //  *    `:before` to contain the top-margins of child elements.
 //  */
 
-%clearfix,
 .clearfix{
 	&:after{
 	  content: "" !important;

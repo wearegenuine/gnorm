@@ -1,0 +1,15 @@
+///*------------------------------------*\
+//    #CORE/HELPERS - HIDDEN
+//\*------------------------------------*/
+/* Note: Add the .hidden class to GNorm, this class is intended to be used on links
+ * that should not display their text, ex. a icon button.
+ */
+
+.hidden{
+  height: 1px;
+  left: -10000px;
+  overflow: hidden;
+  position: absolute;
+  top: auto;
+  width: 1px;
+}
