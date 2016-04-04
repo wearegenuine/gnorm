@@ -71,8 +71,7 @@ When developing we should be aware of how our sites preform for users with acces
 ##### Aria Basics
 [WAI-ARIA](https://www.w3.org/TR/WCAG20), the **Accessible Rich Internet Applications** Suite, defines a way to make Web content and Web applications more accessible to people with accessibility needs. For background on ARIA and extensive examples on how and where to use them, refer to the [ARIA in HTML](https://specs.webplatform.org/html-aria/webspecs/master) page. For practical examples of working with ARIA can be found [here](http://heydonworks.com/practical_aria_examples) and information on browser support for the ARIA tags can be found [here](http://caniuse.com/#feat=wai-aria).
 
-The follow ARIA tags are tags the baseline accessibility tags that we recommend using while writing your HTML. Each will have markup example on its use,
-
+The following ARIA tags are the baseline accessibility tags we recommend using while writing your HTML. Each will have a markup example on its use.
 
 * `role="navigation":` A collection of navigational elements (usually links) for navigating the document or related documents.
 
@@ -100,18 +99,20 @@ _Note: the `<nav>` element is a HTML 5 element that is not supported in all brow
 ```
 
 * `aria-haspopup="true":` Indicates that the element has a popup context menu or sub-level menu.
+* `aria-expanded="false:` Indicates that the element is expanded or closed.
 
 ```html
 <a aria-haspopup="true">Menu Item</a>
-<ul class="hidden-sub-menu">
+<ul class="sub-menu" aria-expanded="false">
   <li><a>Sub Menu Item</a></li>
   <li><a>Sub Menu Item</a></li>
   <li><a>Sub Menu Item</a></li>
 </ul>
 ```
 
+_Note: `aria-expanded="false"` should be changed to `true` when javascript shows the .sub-menu_
 _Note: this aria tag should only be used for a hidden menu_
-_Note: the role="menu" and role="menuitem" have been omitted from this example for clarity purposes_
+_Note: the `role="menu"` and `role="menuitem"` have been omitted from this example for clarity purposes_
 
 * `role="main":` The main content of a document.
 
@@ -126,17 +127,20 @@ _Note: the role="menu" and role="menuitem" have been omitted from this example f
 * `role="tab":` A grouping label providing a mechanism for selecting the tab content that is to be rendered to the user.
 * `role="tablist":` A list of tab elements, which are references to tabpanel elements.
 * `role="tabpanel":` A container for the resources associated with a tab, where each tab is contained in a tablist.
+* `aria-selected="true":` Sets or retrieves the selection state of this element.
 
 ```html
-<div role="tab">
+<div>
   <ul role="tablist">
-    <a>Click here to change tabs</a>
+    <a role="tab" aria-selected="true">Click here to change tabs</a>
   </ul>
   <div role="tabpanel">
     <p>This is the tab content that will show when the tab is clicked</p>
   </div>
 </div>
 ```
+
+_Note: `aria-selected="true":` should be changed to `false` when the javascript fires (the new active tab should get the new `true)_
 
 * `role="button":` An input that allows for user-triggered actions when clicked or pressed.
 
@@ -145,7 +149,7 @@ _Note: the role="menu" and role="menuitem" have been omitted from this example f
 ```
 
 ##### `hidden` helper class
-Init launches with a `hidden` helper class that will help hide the content of a linked icon (for example an arrow that moves a carousel). To makes this element accessible you will need to add a text within the element. To prevent this from breaking the layout we can add the class `hidden` to remove the text from the DOM visually while still allowing a screenreader to access it. The following is an example of use:
+Init launches with a `hidden` helper class that will help hide the content of a linked icon (for example an arrow that moves a carousel). To makes this element accessible you will need to add text within the element. To prevent this from breaking the layout we can add the class `hidden` to remove the text from the DOM visually while still allowing a screenreader to access it. The following is an example of use:
 
 ```html
 <a class="hidden icon-arrow-l">View the next slide</a>
