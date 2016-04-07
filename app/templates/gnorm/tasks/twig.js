@@ -8,6 +8,9 @@ gulp.task('twig', function () {
     'use strict';
     return gulp.src(config.src)
         .pipe(data(function(file){
+          return require(config.data + 'global.json');
+        }))
+        .pipe(data(function(file){
           return require(config.data + path.basename(file.path, '.twig') + '.json');
         }))
         .pipe(twig({

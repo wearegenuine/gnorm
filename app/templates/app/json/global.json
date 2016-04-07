@@ -1,0 +1,19 @@
+{
+  "primaryNavItems": [
+    {
+      "name": "Home",
+      "link": "#",
+      "className": "primary-navigation__item--home"
+    },
+    {
+      "name": "About",
+      "link": "#",
+      "className": "primary-navigation__item--about"
+    },
+    {
+      "name": "Contact Us",
+      "link": "#",
+      "className": "primary-navigation__item--contact-us"
+    }
+  ]
+}
