@@ -15,7 +15,6 @@
   // Better Font Rendering
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   &:before {
     font-size: inherit;
     vertical-align: middle;
@@ -24,46 +23,40 @@
   }
 }
 
-.icon {
+.icon{
   font-size: 2rem;
 }
 
-%icon-heart,
 .icon-heart{
   &:before{
     content: '\e63b';
   }
 }
 
-%icon-schedule,
 .icon-schedule{
   &:before{
     content: '\e63f';
   }
 }
 
-%icon-user,
 .icon-user{
   &:before{
     content: '\e640';
   }
 }
 
-%icon-arrow-d,
 .icon-arrow-d{
   &:before{
     content: '\e600';
   }
 }
 
-%icon-arrow-l,
 .icon-arrow-l{
   &:before{
     content: '\e601';
   }
 }
 
-%icon-arrow-r,
 .icon-arrow-r{
   &:before{
     content: '\e602';
@@ -77,112 +70,96 @@
   }
 }
 
-%icon-bracket-d,
 .icon-bracket-d{
   &:before{
     content: '\e604';
   }
 }
 
-%icon-bracket-l,
 .icon-bracket-l{
   &:before{
     content: '\e605';
   }
 }
 
-%icon-bracket-r,
 .icon-bracket-r{
   &:before{
     content: '\e606';
   }
 }
 
-%icon-bracket-u,
 .icon-bracket-u{
   &:before{
     content: '\e607';
   }
 }
 
-%icon-cart,
 .icon-cart{
   &:before{
     content: '\e608';
   }
 }
 
-%icon-chat,
 .icon-chat{
   &:before{
     content: '\e609';
   }
 }
 
-%icon-facebook,
 .icon-facebook{
   &:before{
     content: '\e60a';
   }
 }
 
-%icon-home,
 .icon-home{
   &:before{
     content: '\e60c';
   }
 }
 
-%icon-info,
 .icon-info{
   &:before{
     content: '\e60d';
   }
 }
 
-%icon-instagram,
 .icon-instagram{
   &:before{
     content: '\e60e';
   }
 }
 
-%icon-mail,
 .icon-mail{
   &:before{
     content: '\e60f';
   }
 }
 
-%icon-pinterest,
 .icon-pinterest{
   &:before{
     content: '\e611';
   }
 }
 
-%icon-play,
 .icon-play{
   &:before{
     content: '\e612';
   }
 }
 
-%icon-resources,
 .icon-resources{
   &:before{
     content: '\e613';
   }
 }
 
-%icon-search,
 .icon-search{
   &:before{
     content: '\e614';
   }
 }
 
-%icon-solid-arrow-d-u,
 .icon-solid-arrow-d-u{
   &:before{
     content: '\e615';
@@ -190,35 +167,30 @@
   }
 }
 
-%icon-solid-arrow-d,
 .icon-solid-arrow-d{
   &:before{
     content: '\e616';
   }
 }
 
-%icon-solid-arrow-l,
 .icon-solid-arrow-l{
   &:before{
     content: '\e617';
   }
 }
 
-%icon-solid-arrow-r,
 .icon-solid-arrow-r{
   &:before{
     content: '\e618';
   }
 }
 
-%icon-solid-arrow-u,
 .icon-solid-arrow-u{
   &:before{
     content: '\e619';
   }
 }
 
-%icon-twitter,
 .icon-twitter{
   &:before{
     content: '\e61a';

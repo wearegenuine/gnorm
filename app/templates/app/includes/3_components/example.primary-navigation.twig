@@ -1,0 +1,10 @@
+{#  This example shows the basic twig loop pattern.  primaryNavItems is an array that lives in global.json #}
+<nav class="primary-navigation" role="navigation">
+  <ul class="primary-navigation__list">
+  {% for navItem in primaryNavItems %}
+    <li class="primary-navigation__item {{navItem.className}}">
+      <a href="{{navItem.link}}">{{ navItem.name }}</a>
+    </li>
+  {% endfor %}
+  </ul>
+</nav>
