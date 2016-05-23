@@ -184,7 +184,7 @@ $columnsNumber: map-get($susy, columns);
 }
 
 .row {
-  @extend %clearfix;
+  @extend .clearfix;
   display: block;
 }
 
