@@ -114,7 +114,8 @@ module.exports = generators.Base.extend({
 		// copy app/
 		this.fs.copy(
 			this.templatePath('app/'),
-			this.destinationPath('./app')
+			this.destinationPath('./app'),
+			{ globOptions: { dot: true } }
 		);
 
 		// template README.md
