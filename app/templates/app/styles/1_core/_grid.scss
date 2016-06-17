@@ -81,7 +81,7 @@ $columnsNumber: map-get($susy, columns);
     $secondNumber: $columnsNumber / $gcd;
     @if $suffix != '' {
       .span-#{$firstNumber}of#{$secondNumber}#{$suffix} {
-        @include grid($spanValue, $pushValue);
+        @include grid-suffix($spanValue, $pushValue);
       }
     } @else {
       .span-#{$firstNumber}of#{$secondNumber}{
@@ -116,6 +116,15 @@ $columnsNumber: map-get($susy, columns);
   }
 }
 
+@mixin grid-suffix($spanValue, $pushValue:'') {
+  width:$spanValue;
+  @if $pushValue != ''{
+    &.center{
+      @include push($pushValue);
+    }
+  }
+}
+
 @mixin grid-default($namespace:'') {
   $suffix: '';
   @if ($namespace != ''){
@@ -126,7 +135,7 @@ $columnsNumber: map-get($susy, columns);
     $pushValue: (100% - $spanValue) / 2;
     @if $suffix != ''{
       .span-#{$i}#{$suffix} {
-        @include grid($spanValue, $pushValue);
+        @include grid-suffix($spanValue, $pushValue);
       }
       .push-#{$i}#{$suffix} {
         @include push($i);
