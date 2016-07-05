@@ -9,6 +9,7 @@ module.exports = {
     });
   },
   modules: {
+    componentReveal: require('./componentReveal/componentReveal.load'),
     sampleModule: require('./sampleModule/sampleModule.load')
   }
 

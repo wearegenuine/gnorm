@@ -1,0 +1,24 @@
+.reveal-adjust{
+	*{
+		transform:none !important;
+		z-index:auto !important;
+	}
+	.reveal{
+		background-color:#fff !important;
+		outline:1px solid red;
+		position:relative;
+		z-index:3000 !important;
+	}
+	.reveal-overlay{
+		background-color:#000;
+		bottom:0;
+		height:100%;
+		left:0;
+		opacity:0.5;
+		position:fixed;
+		right:0;
+		top:0;
+		width:100%;
+		z-index:2000;
+	}
+}
