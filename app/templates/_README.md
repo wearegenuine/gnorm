@@ -273,6 +273,9 @@ That's it! Now, when the page loads, `app/scripts/app.js` kicks off the module r
 
 _Note: The module loader passes a jQuery object of the element that contains `data-module`. This allows for easy scoping if you need to load more than one instance of the module on a page._
 
+#### Using the Component Reveal Functionality
+Init comes with a reveal utility that allows for the highlighting of components on a particular page. To highlight a component simply pass in a search query at the end of the url `?r=[COMPONENT SELECTOR]`. For example to hightlight all the .example-cards components, simply pass in this query in the url, `?r=.example-card`. This query value can be any valid jQuery selector.
+
 ##### Using Third-Party Libraries/Plugins
 Some plugins might not be available via NPM. Rather than use another package manager, we can leverage [Napa](https://www.npmjs.com/package/napa). Add the repo URL to the `napa` object in the `package.json` folder and reference it just like an NPM package.
 
