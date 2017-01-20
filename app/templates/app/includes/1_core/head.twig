@@ -11,8 +11,20 @@
   <meta http-equiv="cleartype" content="on">
 
   <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/styles/screen.css">
+  <script>
+    // If fonts are cached, skip FFO.
+    if (sessionStorage.fontsLoaded === 'true') {
+      document.documentElement.classList.add("fonts-loaded");
+    }
+    else {
+      var script = document.createElement("script");
+      script.src = "/scripts/fontloader.built.js";
+      script.async = true;
+      document.head.appendChild(script);
+    };
+  </script>
 
+  <link rel="stylesheet" href="/styles/screen.css">
 
   <script src="/scripts/libs/modernizr.js"></script>
 
