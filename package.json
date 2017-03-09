@@ -1,6 +1,6 @@
 {
   "name": "generator-gnorm",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "Genuine Norm (GNorm) is an all-encompassing starting point for Genuine UI projects that provides architectural direction, fast scaffolding, code familiarity and promotes developer scalability.",
   "files": [
     "app"
