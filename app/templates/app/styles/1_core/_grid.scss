@@ -1,7 +1,6 @@
 ///*------------------------------------*\
 //    #CORE - BREAKPOINTS
 //\*------------------------------------*/
-
 $mobile: 240px;
 $large-mobile: 400px;
 $tablet: 600px;
@@ -15,7 +14,6 @@ $large-desktop: 1600px;
 @include add-breakpoint('large-tablet', $large-tablet);
 @include add-breakpoint('desktop', $desktop);
 @include add-breakpoint('large-desktop', $large-desktop);
-
 $breakpoint-has-widths: ('mobile', 'tablet', 'desktop');
 
 ///*------------------------------------*\
@@ -66,91 +64,104 @@ $susy: (
 $suffix: true;
 $columnsNumber: map-get($susy, columns);
 
-@mixin device-type($namespace:'') {
+@mixin device-type($namespace: '') {
   $suffix: '';
   $extend: #{%};
-  @if ($namespace != ''){
+
+  @if ($namespace != '') {
     $suffix: #{\@ + $namespace};
   }
   @include grid-default($namespace);
+
   @for $g from 1 through $columnsNumber {
     $spanValue: span($g of $columnsNumber);
     $pushValue: (100% - $spanValue) / 2;
     $gcd: gcd($g, $columnsNumber);
     $firstNumber: $g / $gcd;
     $secondNumber: $columnsNumber / $gcd;
+
     @if $suffix != '' {
       .span-#{$firstNumber}of#{$secondNumber}#{$suffix} {
         @include grid-suffix($spanValue, $pushValue);
       }
     } @else {
-      .span-#{$firstNumber}of#{$secondNumber}{
+      .span-#{$firstNumber}of#{$secondNumber} {
         @include grid($spanValue, $pushValue);
       }
     }
   }
 }
 
-@function gcd($a, $b){
+@function gcd($a, $b) {
   @if $b == 0 {
     @return $a;
   } @else {
-    @return gcd($b, $a%$b);
+    @return gcd($b, $a % $b);
   }
 }
 
-@mixin grid($spanValue, $pushValue:'') {
-  width:100%;
-  @if $pushValue != ''{
-    &.center{
+@mixin grid($spanValue, $pushValue: '') {
+  width: 100%;
+
+  @if $pushValue != '' {
+    &.center {
       @include push(0);
     }
   }
   @include breakpoint($large-mobile) {
-    width:$spanValue;
-    @if $pushValue != ''{
-      &.center{
+    width: $spanValue;
+
+    @if $pushValue != '' {
+      &.center {
         @include push($pushValue);
       }
     }
   }
 }
 
-@mixin grid-suffix($spanValue, $pushValue:'') {
-  width:$spanValue;
-  @if $pushValue != ''{
-    &.center{
+@mixin grid-suffix($spanValue, $pushValue: '') {
+  width: $spanValue;
+
+  @if $pushValue != '' {
+    &.center {
       @include push($pushValue);
     }
   }
 }
 
-@mixin grid-default($namespace:'') {
+@mixin grid-default($namespace: '') {
   $suffix: '';
-  @if ($namespace != ''){
+
+  @if ($namespace != '') {
     $suffix: #{\@ + $namespace};
   }
+
   @for $i from 1 through $columnsNumber {
     $spanValue: span($i of $columnsNumber);
     $pushValue: (100% - $spanValue) / 2;
-    @if $suffix != ''{
+
+    @if $suffix != '' {
       .span-#{$i}#{$suffix} {
         @include grid-suffix($spanValue, $pushValue);
       }
+
       .push-#{$i}#{$suffix} {
         @include push($i);
       }
+
       .pull-#{$i}#{$suffix} {
         @include pull($i);
       }
     } @else {
-      .span-#{$i}{
+      .span-#{$i} {
         @include grid($spanValue, $pushValue);
       }
-      .push-#{$i}{
+
+      .push-#{$i} {
         @include push($i);
       }
-      .pull-#{$i}{
+
+      .pull-#{$i} {
         @include pull($i);
       }
     }
@@ -160,6 +171,7 @@ $columnsNumber: map-get($susy, columns);
 @mixin grid-media-query($breakpoint) {
   $breakpoint-found: false;
   $value: map-get($BREAKPOINTS, $breakpoint);
+
   @if $value != null {
     @include respond-to($breakpoint) {
       @content;
@@ -170,7 +182,7 @@ $columnsNumber: map-get($susy, columns);
 @include device-type;
 
 // If $suffix is 'true', then rerun the device-type mixin to add suffixes
-@if $suffix == true{
+@if $suffix == true {
   @each $name in $breakpoint-has-widths {
     @include grid-media-query($name) {
       @include device-type('#{$name}');
@@ -179,17 +191,10 @@ $columnsNumber: map-get($susy, columns);
 }
 
 // SUSY SPECIFC STYLING
-.wrapper {
-  @include container();
-  // If susy debug is toggled, then overwrite the '*' background-repeat value (won't show the columns otherwise)
-  @if map-get($susy, debug) != null{
-    background-repeat:repeat;
-  }
-}
 
 // Overwrite the .center class margin-right
-.remove-center{
-  margin-right:0;
+.remove-center {
+  margin-right: 0;
 }
 
 .row {
@@ -198,8 +203,9 @@ $columnsNumber: map-get($susy, columns);
 }
 
 [class^='span-'] {
-  float:left;
-  margin-right:gutter();
+  float: left;
+  margin-right: gutter();
+
   &:last-child {
     margin-right: 0;
   }
