@@ -1,32 +1,32 @@
-'use strict';
+'use strict'
+
 
 //This particular flavor also includes a tiny Promise shim for cross-browser compatibility
-var FontFaceObserver = require('fontfaceobserver/fontfaceobserver.js');
-var html = document.documentElement;
+const FontFaceObserver = require('fontfaceobserver/fontfaceobserver.js')
 
-// Replace these with your project web fonts
-var normal = new FontFaceObserver('Roboto');
-var bold = new FontFaceObserver('Roboto', {
-  'font-weight': 700
-});
 
-html.classList.add('fonts-loading');
+const sansRegular = new FontFaceObserver('Roboto', {
+  weight: 400
+})
+const sansBold = new FontFaceObserver('Roboto', {
+  weight: 700
+})
+
 
 /* Should reference any and all custom Font Families being used in our so we
  * don't hide any text during the intial page load.
  */
 
 Promise.all([
-  normal.load(),
-  bold.load()
-])
-.then(function() {
-  html.classList.remove('fonts-loading');
-  html.classList.add('fonts-loaded');
-  sessionStorage.fontsLoaded = true;
+  sansRegular.check(),
+  sansBold.check()
+]).then(function() {
 
-// Timeout fallback if something fails with the promises.
+  document.documentElement.className += ' ' + 'fonts-loaded'
+
+//Timeout fallback if something fails with the promises.
 }, function() {
-  html.classList.remove('fonts-loading');
-  html.classList.add('fonts-failed');
-});
+
+  document.documentElement.className += ' ' + 'fonts-loaded'
+
+})
