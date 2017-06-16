@@ -1,8 +1,9 @@
-'use strict';
+'use strict'
 
-var $ = require('jquery');
-var ComponentReveal = require('./modules/componentReveal/componentReveal.main');
-var componentReveal = new ComponentReveal();
-var moduleRegistry = require('./modules/');
+const $ = require('jquery')
+const ComponentReveal = require('./modules/componentReveal/componentReveal.main')
+const moduleRegistry = require('./modules/')
 
-moduleRegistry.init();
+const componentReveal = new ComponentReveal()
+
+moduleRegistry.init()

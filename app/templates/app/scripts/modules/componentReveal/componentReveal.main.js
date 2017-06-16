@@ -1,29 +1,29 @@
-'use strict';
+'use strict'
 
-var $ = require('jquery');
+const $ = require('jquery')
 
 module.exports = class ComponentReveal{
   constructor($el){
-		var host = window.location.host;
-		var hostCheck = function(urlTarget, hostToCheck){
-			var innerHost = hostToCheck.match(urlTarget);
+		const host = window.location.host
+		const hostCheck = function(urlTarget, hostToCheck){
+			const innerHost = hostToCheck.match(urlTarget)
 			if(innerHost !== null){
-				return true;
+				return true
 			}
-		};
+		}
 		if(hostCheck('localhost', host) || hostCheck('phpstage', host)){
-			var search = window.location.search;
+			let search = window.location.search
 			if(search !== ''){
-				search = search.split('?r=');
-				var revealTarget = $('' + search[1] + '');
+				search = search.split('?r=')
+				const revealTarget = $('' + search[1] + '')
 				if(revealTarget.length > 0){
-					var overlay = $('<div></div>', {
+					const overlay = $('<div></div>', {
 						'class':'reveal-overlay'
-					}).appendTo('body');
-					$('body').addClass('reveal-adjust');
-					revealTarget.addClass('reveal');
+					}).appendTo('body')
+					$('body').addClass('reveal-adjust')
+					revealTarget.addClass('reveal')
 				}
 			}
 		}
   }
-};
+}

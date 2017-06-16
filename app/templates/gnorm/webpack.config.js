@@ -1,8 +1,8 @@
-'use strict';
+'use strict'
 
 var config = require('./config').scripts,
     path = require('path'),
-    webpack = require('webpack');
+    webpack = require('webpack')
 
 module.exports = {
 	cache: true,
@@ -24,7 +24,7 @@ module.exports = {
 			{
 				test: /\.js$/, // include .js files
 				exclude: [/libs/, /node_modules/],
-				loader: 'jshint-loader'
+				loader: 'eslint-loader'
 			}
 		],
 		loaders: [
@@ -55,4 +55,4 @@ module.exports = {
 		// alias: {}
 		extensions: ['', '.js', '.es6']
 	}
-};
+}

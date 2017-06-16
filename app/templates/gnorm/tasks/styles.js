@@ -1,17 +1,17 @@
-var gulp = require('gulp'),
-    autoprefixer = require('autoprefixer'),
+const autoprefixer = require('autoprefixer'),
     browserSync = require('browser-sync'),
     config = require('../config').styles,
+    gulp = require('gulp'),
     gulpif = require('gulp-if'),
     nano = require('gulp-cssnano'),
     plumber = require('gulp-plumber'),
     postcss = require('gulp-postcss'),
     sass = require('gulp-sass'),
     sassGlob = require('gulp-sass-glob'),
-    sourcemaps = require('gulp-sourcemaps');
+    sourcemaps = require('gulp-sourcemaps')
 
 
-var processors = [
+const processors = [
       autoprefixer({
         browsers: '> 1%, last 4 versions',
         map: true
@@ -20,14 +20,14 @@ var processors = [
       calc: false,
       mergeIdents: false,
       zindex: false
-    };
+    }
 
 gulp.task('styles', function() {
   return gulp.src(config.src)
     .pipe(plumber({
       errorHandler: function(error) {
-        console.log(error.message);
-        this.emit('end');
+        console.log(error.message)
+        this.emit('end')
       }
     }))
    // .pipe(sourcemaps.init())
@@ -43,8 +43,8 @@ gulp.task('styles', function() {
     .pipe(gulp.dest(config.dest))
     .pipe(browserSync.reload({
       stream: true
-    }));
-});
+    }))
+})
 
 // Notes:
 //

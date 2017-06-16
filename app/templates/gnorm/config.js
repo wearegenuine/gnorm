@@ -1,5 +1,5 @@
-var dest = './build';
-var src = './app';
+var dest = './build'
+var src = './app'
 
 module.exports = {
 	app: './app',
@@ -68,4 +68,4 @@ module.exports = {
 		dest: dest,
 		data: '../.' + src + '/json/'
 	}
-};
+}
