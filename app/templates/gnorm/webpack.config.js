@@ -24,7 +24,7 @@ module.exports = {
 			{
 				test: /\.js$/, // include .js files
 				exclude: [/libs/, /node_modules/],
-				loader: 'jshint-loader'
+				loader: 'eslint-loader'
 			}
 		],
 		loaders: [
