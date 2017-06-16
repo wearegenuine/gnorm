@@ -29,4 +29,4 @@ Promise.all([
 }, function() {
   html.classList.remove('fonts-loading')
   html.classList.add('fonts-failed')
-});
+})
