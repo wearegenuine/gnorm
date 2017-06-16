@@ -1,7 +1,7 @@
-const gulp       = require('gulp'),
-    changed    = require('gulp-changed'),
-    config     = require('../config').images,
-    imagemin   = require('gulp-imagemin')
+const changed = require('gulp-changed'),
+    config = require('../config').images,
+    gulp = require('gulp'),
+    imagemin = require('gulp-imagemin')
 
 gulp.task('images', function() {
   return gulp.src(config.src)

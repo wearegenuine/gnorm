@@ -1,7 +1,7 @@
 'use strict'
-const gulp = require('gulp'),
-    config = require('../config')
-    
+const config = require('../config'),
+    gulp = require('gulp')
+
 gulp.task('watch', ['browserSync'], function() {
   gulp.watch(config.styles.src, ['styles'])
   gulp.watch(config.images.src, ['images'])

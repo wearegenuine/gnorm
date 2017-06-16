@@ -1,9 +1,9 @@
 'use strict'
 
-const gulp = require('gulp'),
+const config = require('../config'),
+    gulp = require('gulp'),
     ttf2woff2 = require('gulp-ttf2woff2'),
-    ttf2woff = require('gulp-ttf2woff'),
-    config = require('../config')
+    ttf2woff = require('gulp-ttf2woff')
 
 gulp.task('fonts', function() {
   gulp.src([config.app + '/fonts/**/*.ttf'])

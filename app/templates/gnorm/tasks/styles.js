@@ -1,7 +1,7 @@
-const gulp = require('gulp'),
-    autoprefixer = require('autoprefixer'),
+const autoprefixer = require('autoprefixer'),
     browserSync = require('browser-sync'),
     config = require('../config').styles,
+    gulp = require('gulp'),
     gulpif = require('gulp-if'),
     nano = require('gulp-cssnano'),
     plumber = require('gulp-plumber'),
@@ -11,7 +11,7 @@ const gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps')
 
 
-var processors = [
+const processors = [
       autoprefixer({
         browsers: '> 1%, last 4 versions',
         map: true
