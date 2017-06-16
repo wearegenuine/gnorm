@@ -1,9 +1,9 @@
-var gulp = require('gulp'),
+const gulp = require('gulp'),
     include = require('gulp-include'),
-    config = require('../config').markup;
+    config = require('../config').markup
 
 gulp.task('markup', function() {
   return gulp.src(config.src)
     .pipe(include())
-    .pipe(gulp.dest(config.dest));
-});
+    .pipe(gulp.dest(config.dest))
+})

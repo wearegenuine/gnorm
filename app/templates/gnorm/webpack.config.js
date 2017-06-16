@@ -1,8 +1,8 @@
-'use strict';
+'use strict'
 
 var config = require('./config').scripts,
     path = require('path'),
-    webpack = require('webpack');
+    webpack = require('webpack')
 
 module.exports = {
 	cache: true,
@@ -55,4 +55,4 @@ module.exports = {
 		// alias: {}
 		extensions: ['', '.js', '.es6']
 	}
-};
+}
