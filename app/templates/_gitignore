@@ -1,9 +1,0 @@
-bower_components
-node_modules
-.sass-cache
-.tmp
-*.zip
-.DS_Store
-$.DS_Store
-npm-debug.log
-Gemfile.lock
