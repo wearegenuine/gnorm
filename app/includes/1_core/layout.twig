@@ -1,6 +1,6 @@
 {# layout.twig #}
 
-{% include 'head.twig' %}
+{% include '@includes/1_core/head.twig' %}
 
 {% if bodyClass is defined %}
 <body class="{{ bodyClass }}">
@@ -8,11 +8,11 @@
 <body>
 {% endif %}
 
-  {% include '../4_regions/header.twig' %}
+  {% include '@includes/4_regions/header.twig' %}
 
   {% block page %}{% endblock %}
 
-  {% include '../4_regions/footer.twig' %}
+  {% include '@includes/4_regions/footer.twig' %}
 
 </body>
 

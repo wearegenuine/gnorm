@@ -14,6 +14,7 @@ gulp.task('twig', function () {
           return require(config.data + path.basename(file.path, '.twig') + '.json')
         }))
         .pipe(twig({
+          namespaces: { 'includes': config.includes },
           onError: function(){
             //Emits error without killing the server
           }
