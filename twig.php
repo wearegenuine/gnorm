@@ -30,20 +30,18 @@ foreach (glob($sourcePattern) as $filename) {
 
   echo "Rendering $basename\n";
 
-  // Get any json
+  // Get any json.
   $jsonFile = $jsonPath ."/{$basename}.json";
   $json = getJson($jsonFile);
   $json = array_merge($json, $globalJson);
 
-  $destination = $buildPath . "/{$basename}.html";
-
+  // Render the twig file.
   $file = $sourceDir . "/{$basename}.twig";
   $rendered = $twig->render($file, $json);
 
-  $rendered .= 'test';
-
+  // Write the output file.
+  $destination = $buildPath . "/{$basename}.html";
   file_put_contents($destination, $rendered);
-
 }
 
 function getJson($file_path) {
