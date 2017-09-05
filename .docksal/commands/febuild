@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+## Initiate a build of the theme.  This should be run after "fin feinstall".
+##
+## Usage: fin febuild
+
+fin exec npm run build

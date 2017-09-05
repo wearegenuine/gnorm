@@ -5,10 +5,10 @@ module.exports = {
 	app: './app',
 	build: './build',
 	browserSync: {
-		server: {
-			// We're serving the src folder as well for sass sourcemap linking
-			baseDir: [dest, src]
-		},
+		ui: false,
+		server: false,
+		open: false,
+		reloadDelay: 500,
 		notify: false, //hide the annoying notification
 		files: [
 			dest + '/**',

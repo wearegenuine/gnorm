@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+## Sets up and installs dependencies on new repositories.
+##
+## Usage: fin init
+
+fin exec composer install
+fin feinstall

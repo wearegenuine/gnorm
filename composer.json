@@ -1,0 +1,9 @@
+{
+    "name": "genuine/gnorm",
+    "type": "project",
+    "minimum-stability": "dev",
+    "require": {},
+    "require-dev": {
+        "twig/twig": "^3.0@dev"
+    }
+}

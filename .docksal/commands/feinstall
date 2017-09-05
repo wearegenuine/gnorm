@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+## Installs the packages needed for the front end theme to build.  Run this if there are any changes to package.json.
+##
+## Usage: fin feinstall
+
+fin exec npm install
