@@ -63,10 +63,12 @@ module.exports = {
 		}
 	},
 	twig: {
-		src: src + '/*.twig',
 		watchSrc: src + '/**/*.twig',
-		dest: dest,
-		data: '../.' + src + '/json/',
-		includes: src + '/includes'
+		source: 'app',
+		pattern: 'app/*.twig',
+		dest: 'build',
+		data: 'app/json',
+		includes: 'app/includes',
+		global: 'app/json/global.json'
 	}
 }

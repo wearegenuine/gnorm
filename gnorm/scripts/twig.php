@@ -1,19 +1,31 @@
 <?php
 
+// All of the following parameters are required.
+$longopts = [
+  'source:',
+  'pattern:',
+  'dest:',
+  'data:',
+  'includes:',
+  'global:',
+];
+$options = getopt('', $longopts);
+
 require getenv('PROJECT_ROOT') . '/vendor/autoload.php';
 
+// Set targets based on passed configuration.
 $baseDir = __DIR__ . '/../..';
-$sourceDir = 'app';
+$sourceDir = $options['source'];
 $sourcePath = $baseDir . '/' . $sourceDir;
-$sourcePattern = $sourcePath . "/*.twig";
-$buildDir = 'build';
+$sourcePattern = $options['pattern'];
+$buildDir = $options['dest'];
 $buildPath = $baseDir . '/' . $buildDir;
-$jsonPath = $sourcePath . '/json';
-$includeDir = $sourceDir . '/includes';
-$globalJsonFile = $jsonPath . "/global.json";
+$jsonPath = $options['data'];
+$includeDir = $options['includes'];
+$globalJsonFile = $options['global'];
 $globalJson = getJson($globalJsonFile);
 
-
+// Load twig.
 $loader = new \Twig_Loader_Filesystem($baseDir);
 $loader->addPath($includeDir, 'includes');
 $twig = new \Twig_Environment($loader, array(
