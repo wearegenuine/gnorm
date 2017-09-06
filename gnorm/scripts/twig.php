@@ -2,7 +2,7 @@
 
 require getenv('PROJECT_ROOT') . '/vendor/autoload.php';
 
-$baseDir = __DIR__;
+$baseDir = __DIR__ . '/../..';
 $sourceDir = 'app';
 $sourcePath = $baseDir . '/' . $sourceDir;
 $sourcePattern = $sourcePath . "/*.twig";
