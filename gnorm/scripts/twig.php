@@ -25,41 +25,56 @@ $includeDir = $options['includes'];
 $globalJsonFile = $options['global'];
 $globalJson = getJson($globalJsonFile);
 
+try {
 // Load twig.
-$loader = new \Twig_Loader_Filesystem($baseDir);
-$loader->addPath($includeDir, 'includes');
-$twig = new \Twig_Environment($loader, array(
-  'cache' => false,
-  'debug' => true,
-  'autoescape' => false,
-));
+  $loader = new \Twig_Loader_Filesystem($baseDir);
+  $loader->addPath($includeDir, 'includes');
+  $twig = new \Twig_Environment($loader, array(
+    'cache' => FALSE,
+    'debug' => TRUE,
+    'autoescape' => FALSE,
+  ));
 
 
 // Loop through each file that matches the source pattern.
-foreach (glob($sourcePattern) as $filename) {
-  // Get the name of the file without extension.
-  $basename = basename($filename, '.twig');
+  foreach (glob($sourcePattern) as $filename) {
+    try {
+      // Get the name of the file without extension.
+      $basename = basename($filename, '.twig');
 
-  echo "Rendering $basename\n";
+      echo "Rendering $basename\n";
 
-  // Get any json.
-  $jsonFile = $jsonPath ."/{$basename}.json";
-  $json = getJson($jsonFile);
-  $json = array_merge($json, $globalJson);
+      // Get any json.
+      $jsonFile = $jsonPath . "/{$basename}.json";
+      $json = getJson($jsonFile);
+      $json = array_merge($json, $globalJson);
 
-  // Render the twig file.
-  $file = $sourceDir . "/{$basename}.twig";
-  $rendered = $twig->render($file, $json);
+      // Render the twig file.
+      $file = $sourceDir . "/{$basename}.twig";
+      $rendered = $twig->render($file, $json);
 
-  // Write the output file.
-  $destination = $buildPath . "/{$basename}.html";
-  file_put_contents($destination, $rendered);
+      // Write the output file.
+      $destination = $buildPath . "/{$basename}.html";
+      file_put_contents($destination, $rendered);
+    }
+    catch (Exception $e) {
+      echo $e->getMessage() . "\n";
+    }
+  }
+}
+catch (Exception $e) {
+  echo $e->getMessage() . "\n";
 }
 
 function getJson($file_path) {
   if (file_exists($file_path)) {
     $json_string = file_get_contents($file_path);
-    return json_decode($json_string, true);
+    if ($json = json_decode($json_string, true)) {
+      return $json;
+    }
+    else {
+      return [];
+    }
   }
   else{
     return [];
