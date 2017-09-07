@@ -8,6 +8,7 @@ $longopts = [
   'data:',
   'includes:',
   'global:',
+  'build:',
 ];
 $options = getopt('', $longopts);
 
@@ -23,7 +24,9 @@ $buildPath = $baseDir . '/' . $buildDir;
 $jsonPath = $options['data'];
 $includeDir = $options['includes'];
 $globalJsonFile = $options['global'];
+$isBuild = 'TRUE' == $options['build'] ? TRUE : FALSE;
 $globalJson = getJson($globalJsonFile);
+$globalJson['isBuild'] = $isBuild;
 
 try {
 // Load twig.
