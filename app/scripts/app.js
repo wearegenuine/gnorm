@@ -1,9 +1,3 @@
-'use strict'
+import moduleRegistry from './modules/';
 
-const $ = require('jquery')
-const ComponentReveal = require('./modules/componentReveal/componentReveal.main')
-const moduleRegistry = require('./modules/')
-
-const componentReveal = new ComponentReveal()
-
-moduleRegistry.init()
+moduleRegistry.init();

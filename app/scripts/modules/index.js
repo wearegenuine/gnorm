@@ -1,12 +1,10 @@
-'use strict'
-const $ = require('jquery')
-
 module.exports = {
   init: function() {
-    $('[data-module]').each((i, v) => {
-      let name = $(v).data('module')
-      let module = this.modules[name]($(v))
-    })
+    const dataModules = document.querySelectorAll('[data-module]');
+    for (const dataModule of dataModules) {
+      const name = dataModule.dataset.module;
+      const module = this.modules[name](dataModule);
+    }
   },
   modules: {
     sampleModule: require('./sampleModule/sampleModule.load')
