@@ -6,11 +6,13 @@
 // String Replace
 // =============================================================================
 @function str-replace($string, $search, $replace: '') {
-    $index: str-index($string, $search);
-    @if $index {
-        @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
-    }
-    @return $string;
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
 }
 
 // =============================================================================
@@ -18,7 +20,7 @@
 // =============================================================================
 @mixin font-face($name, $path, $weight: null, $style: null, $exts: woff2 woff) {
   $src: null;
-  $extmods: null;
+  $extmods: ();
 
   // If you need to support IE8, uncomment this map:
   // $extmods: (
@@ -45,15 +47,26 @@
   }
 }
 
+// Usage
+// @include font-face($name: 'Roboto', $path: '../fonts/roboto/roboto-regular', $weight: 400, $style: normal);
+// or
+// @include font-face('Roboto', '../fonts/roboto/roboto-regular', 400, normal);
+
 // Roboto
-@include font-face($name: 'Roboto', $path: '../fonts/roboto/roboto-regular', $weight: 400, $style: normal);
+@include font-face('Roboto', '../fonts/roboto/roboto-regular', 400, normal);
 
 // Icons
-@include font-face('Icomoon', '../fonts/roboto/roboto-regular', 400, normal);
+@include font-face('Icomoon', '../fonts/Icomoon/Icomoon', 400, normal);
 
-$fallbackSans: Helvetica, Arial, sans-serif;
+// System Font stack
+// https://css-tricks.com/snippets/css/system-font-stack/
+$systemFont: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+$fallbackSans: $systemFont;
+
 $sans: 'Roboto', $fallbackSans;
-$icomoon: 'icomoon';
+
+$iconfont: 'Icomoon';
 
 
 // ========================================================================= //
