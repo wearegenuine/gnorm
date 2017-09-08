@@ -1,13 +1,13 @@
-'use strict'
-
 const _ = require('underscore'),
     argv = require('yargs').argv,
+    config = require('../config'),
     gulp = require('gulp'),
     gutil = require('gulp-util'),
     modify = require('gulp-modify'),
     prettify = require('gulp-jsbeautifier'),
     rename = require('gulp-rename'),
-    template = require('gulp-template')
+    template = require('gulp-template');
+
 const util = {
   capitalizeFirstLetter: function(string) {
     return string.charAt(0).toUpperCase() + string.slice(1)
@@ -48,10 +48,9 @@ gulp.task('create-module', function() {
 
   argv.constructor = util.capitalizeFirstLetter(argv.name)
 
-  gulp.src('./app/scripts/modules/index.js')
+  gulp.src(`${config.app}/scripts/modules/index.js`)
     .pipe(modify({
       fileModifier: function(file, contents) {
-
         // Get the file content
         let content = contents.toString()
 
@@ -100,10 +99,10 @@ gulp.task('create-module', function() {
   gulp.src('./gnorm/templates/loader.js')
     .pipe(rename(argv.name + '.load.js'))
     .pipe(template(argv))
-    .pipe(gulp.dest('./app/scripts/modules/' + argv.name))
+    .pipe(gulp.dest(`${config.app}/scripts/modules/${argv.name}`))
   gulp.src('./gnorm/templates/module.js')
     .pipe(rename(argv.name + '.main.js'))
     .pipe(template(argv))
-    .pipe(gulp.dest('./app/scripts/modules/' + argv.name))
+    .pipe(gulp.dest(`${config.app}/scripts/modules/${argv.name}`))
 
 })
