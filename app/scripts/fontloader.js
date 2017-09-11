@@ -3,10 +3,10 @@ const FontFaceObserver = require('fontfaceobserver/fontfaceobserver.js')
 const html = document.documentElement
 
 // Replace these with your project web fonts
-const normal = new FontFaceObserver('Roboto');
+const normal = new FontFaceObserver('Roboto')
 const bold = new FontFaceObserver('Roboto', {
   'font-weight': 700
-});
+})
 
 html.classList.add('fonts-loading')
 
@@ -21,15 +21,15 @@ if (!html.classList.contains('fonts-loaded')) {
     bold.load()
   ]).then(
     function() {
-      html.classList.remove('fonts-loading');
-      html.classList.add('fonts-loaded');
-      sessionStorage.fontsLoaded = true;
+      html.classList.remove('fonts-loading')
+      html.classList.add('fonts-loaded')
+      sessionStorage.fontsLoaded = true
 
       // Timeout fallback if something fails with the promises.
     },
     function() {
-      html.classList.remove('fonts-loading');
-      html.classList.add('fonts-failed');
+      html.classList.remove('fonts-loading')
+      html.classList.add('fonts-failed')
     }
-  );
+  )
 }

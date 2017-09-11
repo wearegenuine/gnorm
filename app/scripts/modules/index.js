@@ -1,9 +1,9 @@
 module.exports = {
   init: function() {
-    const dataModules = document.querySelectorAll('[data-module]');
+    const dataModules = document.querySelectorAll('[data-module]')
     for (const dataModule of dataModules) {
-      const name = dataModule.dataset.module;
-      const module = this.modules[name](dataModule);
+      const name = dataModule.dataset.module
+      const module = this.modules[name](dataModule)
     }
   },
   modules: {

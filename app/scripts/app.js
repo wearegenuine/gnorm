@@ -1,3 +1,3 @@
-import moduleRegistry from './modules/';
+import moduleRegistry from './modules/'
 
-moduleRegistry.init();
+moduleRegistry.init()
