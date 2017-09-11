@@ -1,5 +1,5 @@
-const dest = './build';
 const src = './app';
+const dest = './build';
 
 module.exports = {
   app: './app',
@@ -16,10 +16,6 @@ module.exports = {
       // Exclude Map files
       '!' + dest + '/**.map'
     ]
-  },
-  styles: {
-    src: src + '/styles/**/*.{sass,scss}',
-    dest: dest + '/styles'
   },
   favicon: {
     src: src + '/favicon.ico',
@@ -58,6 +54,10 @@ module.exports = {
         }
       }
     }
+  },
+  styles: {
+    src: src + '/styles/**/*.{sass,scss}',
+    dest: dest + '/styles'
   },
   twig: {
     src: src + '/*.twig',
