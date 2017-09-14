@@ -1,45 +1,52 @@
-const autoprefixer = require('autoprefixer'),
-    browserSync = require('browser-sync'),
-    config = require('../config').styles,
-    gulp = require('gulp'),
-    gulpif = require('gulp-if'),
-    nano = require('gulp-cssnano'),
-    plumber = require('gulp-plumber'),
-    postcss = require('gulp-postcss'),
-    sass = require('gulp-sass'),
-    sassGlob = require('gulp-sass-glob'),
-    sourcemaps = require('gulp-sourcemaps')
+const browserSync = require('browser-sync'),
+  config = require('../config').styles,
+  gulp = require('gulp'),
+  gutil = require('gulp-util'),
+  cssnano = require('cssnano'),
+  plumber = require('gulp-plumber'),
+  postcss = require('gulp-postcss'),
+  sass = require('gulp-sass'),
+  sassGlob = require('gulp-sass-glob'),
+  sourcemaps = require('gulp-sourcemaps');
 
 
-const processors = [
-      autoprefixer({
-        browsers: '> 1%, last 4 versions',
-        map: true
-    })],
-    nanoOpts = {
-      calc: false,
-      mergeIdents: false,
-      zindex: false
+const plugins = [
+  cssnano({
+    autoprefixer: {
+      // CSSNano's implementation of Autoprefixer only removes unnecessary
+      // prefixes by default.  `add: true` fixes that.
+      // To define browser support, see package.json > browserslist.
+      add: true
+    },
+    discardComments: {
+      removeAll: true
+    },
+    zindex: false,
+    options: {
+      sourcemap: true
     }
+  })
+];
 
 gulp.task('styles', function() {
-  return gulp.src(config.src)
+  return gulp
+    .src(config.src)
     .pipe(plumber({
       errorHandler: function(error) {
-        console.log(error.message)
-        this.emit('end')
+        gutil.log(error.message);
+        this.emit('end');
       }
     }))
-   // .pipe(sourcemaps.init())
-   .pipe(sassGlob())
-    .pipe(sass({
-      "includePaths": [
-        "./node_modules/"
-      ]
-    }).on('error', sass.logError))
-    .pipe(postcss(processors))
-    // .pipe(gulpif(!global.devMode, nano(nanoOpts)))
-    // .pipe(sourcemaps.write())
+    .pipe(sourcemaps.init())
+    .pipe(sassGlob())
+    .pipe(
+      sass({
+        includePaths: ['./node_modules/']
+      })
+    )
+    .pipe(postcss(plugins))
+    .pipe(sourcemaps.write('.'))
+    .pipe(plumber.stop())
     .pipe(gulp.dest(config.dest))
     .pipe(browserSync.reload({
       stream: true
@@ -55,4 +62,3 @@ gulp.task('styles', function() {
 // PostCSS plugins and options:
 //   https://github.com/postcss/gulp-postcss
 //   https://github.com/postcss/postcss#plugins
-//
