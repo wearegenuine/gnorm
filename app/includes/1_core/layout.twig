@@ -14,7 +14,9 @@
 
 {% include '@includes/4_regions/footer.twig' %}
 
+{% if not isBuild %}
   {% include '@includes/1_core/browser-sync.twig' %}
+{% endif %}
 
 </body>
 

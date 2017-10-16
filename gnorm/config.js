@@ -67,14 +67,19 @@ module.exports = {
     dest: dest + '/styles'
   },
   twig: {
-    src: src + '/*.twig',
-    dest: dest,
     watchSrc: [
       src + '/*.twig',
       src + '/**/*.twig',
       src + '/json/*.json'
     ],
-    data: '../.' + src + '/json/',
-    includes: src + '/includes'
+    source: 'app',
+    pattern: 'app/*.twig',
+    dest: 'build',
+    data: 'app/json',
+    namespaces: {
+      includes: 'app/includes'
+    },
+    global: 'app/json/global.json',
+    vendor: './vendor'
   }
 }
