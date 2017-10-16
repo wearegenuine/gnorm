@@ -3,196 +3,193 @@
 //\*------------------------------------*/
 /* Note: Will be replaced once SVG feature branch is completed */
 
+%icon,
 [class^='icon-'],
 [class*=' icon-'] {
-  font-family: 'icomoon';
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  font-size: 2rem;
-  // Better Font Rendering
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   &:before {
+    font-family: $iconfont;
+    speak: none;
+    font-style: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     font-size: inherit;
-    vertical-align: middle;
+    line-height: inherit;
+    vertical-align: baseline;
     display: inline-block;
-    margin-right: 1.5rem;
   }
 }
 
-.icon{
+.icon {
   font-size: 2rem;
 }
 
-.icon-heart{
-  &:before{
+.icon-heart {
+  &:before {
     content: '\e63b';
   }
 }
 
-.icon-schedule{
-  &:before{
+.icon-schedule {
+  &:before {
     content: '\e63f';
   }
 }
 
-.icon-user{
-  &:before{
+.icon-user {
+  &:before {
     content: '\e640';
   }
 }
 
-.icon-arrow-d{
-  &:before{
+.icon-arrow-d {
+  &:before {
     content: '\e600';
   }
 }
 
-.icon-arrow-l{
-  &:before{
+.icon-arrow-l {
+  &:before {
     content: '\e601';
   }
 }
 
-.icon-arrow-r{
-  &:before{
+.icon-arrow-r {
+  &:before {
     content: '\e602';
   }
 }
 
 %icon-arrow-u,
-.icon-arrow-u{
-  &:before{
+.icon-arrow-u {
+  &:before {
     content: '\e603';
   }
 }
 
-.icon-bracket-d{
-  &:before{
+.icon-bracket-d {
+  &:before {
     content: '\e604';
   }
 }
 
-.icon-bracket-l{
-  &:before{
+.icon-bracket-l {
+  &:before {
     content: '\e605';
   }
 }
 
-.icon-bracket-r{
-  &:before{
+.icon-bracket-r {
+  &:before {
     content: '\e606';
   }
 }
 
-.icon-bracket-u{
-  &:before{
+.icon-bracket-u {
+  &:before {
     content: '\e607';
   }
 }
 
-.icon-cart{
-  &:before{
+.icon-cart {
+  &:before {
     content: '\e608';
   }
 }
 
-.icon-chat{
-  &:before{
+.icon-chat {
+  &:before {
     content: '\e609';
   }
 }
 
-.icon-facebook{
-  &:before{
+.icon-facebook {
+  &:before {
     content: '\e60a';
   }
 }
 
-.icon-home{
-  &:before{
+.icon-home {
+  &:before {
     content: '\e60c';
   }
 }
 
-.icon-info{
-  &:before{
+.icon-info {
+  &:before {
     content: '\e60d';
   }
 }
 
-.icon-instagram{
-  &:before{
+.icon-instagram {
+  &:before {
     content: '\e60e';
   }
 }
 
-.icon-mail{
-  &:before{
+.icon-mail {
+  &:before {
     content: '\e60f';
   }
 }
 
-.icon-pinterest{
-  &:before{
+.icon-pinterest {
+  &:before {
     content: '\e611';
   }
 }
 
-.icon-play{
-  &:before{
+.icon-play {
+  &:before {
     content: '\e612';
   }
 }
 
-.icon-resources{
-  &:before{
+.icon-resources {
+  &:before {
     content: '\e613';
   }
 }
 
-.icon-search{
-  &:before{
+.icon-search {
+  &:before {
     content: '\e614';
   }
 }
 
-.icon-solid-arrow-d-u{
-  &:before{
+.icon-solid-arrow-d-u {
+  &:before {
     content: '\e615';
 
   }
 }
 
-.icon-solid-arrow-d{
-  &:before{
+.icon-solid-arrow-d {
+  &:before {
     content: '\e616';
   }
 }
 
-.icon-solid-arrow-l{
-  &:before{
+.icon-solid-arrow-l {
+  &:before {
     content: '\e617';
   }
 }
 
-.icon-solid-arrow-r{
-  &:before{
+.icon-solid-arrow-r {
+  &:before {
     content: '\e618';
   }
 }
 
-.icon-solid-arrow-u{
-  &:before{
+.icon-solid-arrow-u {
+  &:before {
     content: '\e619';
   }
 }
 
-.icon-twitter{
-  &:before{
+.icon-twitter {
+  &:before {
     content: '\e61a';
   }
 }

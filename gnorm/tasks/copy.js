@@ -1,8 +1,6 @@
-'use strict'
-
 const changed = require('gulp-changed'),
-    config = require('../config'),
-    gulp = require('gulp')
+  config = require('../config'),
+  gulp = require('gulp')
 
 gulp.task('copy', ['copy:scripts', 'copy:fonts', 'copy:favicon'])
 

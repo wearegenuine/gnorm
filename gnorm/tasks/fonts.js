@@ -1,13 +1,23 @@
-'use strict'
-
-const config = require('../config'),
-    gulp = require('gulp'),
-    ttf2woff2 = require('gulp-ttf2woff2'),
-    ttf2woff = require('gulp-ttf2woff')
+const config = require('../config').fonts,
+  gulp = require('gulp'),
+  plumber = require('gulp-plumber'),
+  changed = require('gulp-changed'),
+  gutil = require('gulp-util'),
+  ttf2woff2 = require('gulp-ttf2woff2'),
+  ttf2woff = require('gulp-ttf2woff')
 
 gulp.task('fonts', function() {
-  gulp.src([config.app + '/fonts/**/*.ttf'])
-    .pipe(ttf2woff2())
+  return gulp.src(config.src)
+    // Ignore unchanged files
+    .pipe(changed(config.dest))
+    .pipe(plumber({
+      errorHandler: function(error) {
+        gutil.log(error.message);
+        this.emit('end');
+      }
+    }))
     .pipe(ttf2woff())
-    .pipe(gulp.dest(config.app + '/fonts/'))
+    .pipe(ttf2woff2())
+    .pipe(plumber.stop())
+    .pipe(gulp.dest(config.dest));
 })

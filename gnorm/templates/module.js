@@ -1,13 +1,12 @@
-'use strict'
-
 const $ = require('jquery')
 
 module.exports = class <%= constructor %>{
-  constructor($el){
+  constructor($el) {
     this.$el = $el
     this.method(this.$el)
   }
-  method($element){
+
+  method($element) {
     console.log($element)
   }
 }

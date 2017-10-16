@@ -1,10 +1,10 @@
-var dest = './build'
-var src = './app'
+const src = './app';
+const dest = './build';
 
 module.exports = {
-	app: './app',
-	build: './build',
-	browserSync: {
+  app: './app',
+  build: './build',
+  browserSync: {
 		ui: false,
 		server: false,
 		open: false,
@@ -20,55 +20,61 @@ module.exports = {
 		src: src + '/styles/**/*.{sass,scss}',
 		dest: dest + '/styles'
 	},
-	favicon: {
-		src: src + '/favicon.ico',
-		dest: dest
-	},
-	fonts: {
-		src: src + '/fonts/**',
-		dest: dest + '/fonts'
-	},
-	images: {
-		src: src + '/images/**',
-		dest: dest + '/images'
+  favicon: {
+    src: src + '/favicon.ico',
+    dest: dest
+  },
+  fonts: {
+    src: src + '/fonts/**',
+    dest: dest + '/fonts'
+  },
+  images: {
+    src: src + '/images/**',
+    dest: dest + '/images'
 	},
 	markup: {
 		src: src + '/**/*.html',
 		dest: dest
-	},
-	scripts: {
-		all: src + '/scripts/**/*.js',
-		modules: src + '/scripts/modules',
-		src: src + '/scripts/app.js',
-		dest: dest + '/scripts',
-		libsSrc: src + '/scripts/libs/**/*.js',
-		libsDest: dest + '/scripts/libs/',
-		uglifyOptions: {
-			mangle: true,
-			compress: {
-				sequences: true,
-				properties: true,
-				dead_code: true,
-				conditionals: true,
-				booleans: true,
-				unused: false,
-				evaluate: true,
-				if_return: true,
-				join_vars: true,
-				drop_console: true,
-				global_defs: {
-					DEBUG: false
-				}
-			}
-		}
-	},
-	twig: {
-		watchSrc: src + '/**/*.twig',
-		source: 'app',
-		pattern: 'app/*.twig',
-		dest: 'build',
-		data: 'app/json',
-		includes: 'app/includes',
-		global: 'app/json/global.json'
-	}
+  },
+  scripts: {
+    all: src + '/scripts/**/*.js',
+    modules: src + '/scripts/modules',
+    src: src + '/scripts/app.js',
+    dest: dest + '/scripts',
+    libsSrc: src + '/scripts/libs/**/*.js',
+    libsDest: dest + '/scripts/libs/',
+    uglifyOptions: {
+      mangle: true,
+      compress: {
+        sequences: true,
+        properties: true,
+        dead_code: true,
+        conditionals: true,
+        booleans: true,
+        unused: false,
+        evaluate: true,
+        if_return: true,
+        join_vars: true,
+        drop_console: true,
+        global_defs: {
+          DEBUG: false
+        }
+      }
+    }
+  },
+  styles: {
+    src: src + '/styles/**/*.{sass,scss}',
+    dest: dest + '/styles'
+  },
+  twig: {
+    src: src + '/*.twig',
+    dest: dest,
+    watchSrc: [
+      src + '/*.twig',
+      src + '/**/*.twig',
+      src + '/json/*.json'
+    ],
+    data: '../.' + src + '/json/',
+    includes: src + '/includes'
+  }
 }
