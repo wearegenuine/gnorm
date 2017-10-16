@@ -5,21 +5,17 @@ module.exports = {
   app: './app',
   build: './build',
   browserSync: {
-		ui: false,
-		server: false,
-		open: false,
-		reloadDelay: 500,
-		notify: false, //hide the annoying notification
-		files: [
-			dest + '/**',
-			// Exclude Map files
-			'!' + dest + '/**.map'
-		]
-	},
-	styles: {
-		src: src + '/styles/**/*.{sass,scss}',
-		dest: dest + '/styles'
-	},
+    ui: false,
+    server: false,
+    open: false,
+    reloadDelay: 500,
+    notify: false, //hide the annoying notification
+    files: [
+      dest + '/**',
+      // Exclude Map files
+      '!' + dest + '/**.map'
+    ]
+  },
   favicon: {
     src: src + '/favicon.ico',
     dest: dest
@@ -31,10 +27,6 @@ module.exports = {
   images: {
     src: src + '/images/**',
     dest: dest + '/images'
-	},
-	markup: {
-		src: src + '/**/*.html',
-		dest: dest
   },
   scripts: {
     all: src + '/scripts/**/*.js',
