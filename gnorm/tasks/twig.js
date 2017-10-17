@@ -14,8 +14,10 @@ gulp.task('twig:build', function () {
     'use strict';
     cmd.push('-b', 'TRUE');
     exec(shellescape(cmd), function (err, stdout, stderr) {
-        console.log(stdout);
-        console.log(stderr);
+        if (err) {
+            console.log(err)
+        }
+        console.log(stdout, stderr)
     });
 });
 
@@ -24,7 +26,9 @@ gulp.task('twig:build-dev', function () {
     'use strict';
     cmd.push('-b', 'FALSE');
     exec(shellescape(cmd), function (err, stdout, stderr) {
-        console.log(stdout);
-        console.log(stderr);
+        if (err) {
+            console.log(err)
+        }
+        console.log(stdout, stderr)
     });
 });
