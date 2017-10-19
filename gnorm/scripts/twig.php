@@ -1,5 +1,7 @@
 <?php
 
+error_reporting(E_ALL & ~E_NOTICE);
+
 try {
   // All of the following parameters are required.
   /**
@@ -89,6 +91,13 @@ try {
       $destination = $buildPath . "/{$basename}.html";
       file_put_contents($destination, $rendered);
     }
+    catch (Twig_Error $e) {
+      $context = $e->getSourceContext();
+      echo $e->getRawMessage() . "\n"
+        . $context->getName() . " line: " . $e->getLine()
+        . "\n" . $context->getCode()
+        . "\n";
+    }
     catch (Throwable $e) {
       echo $e->getMessage() . "\n" . $e->getTraceAsString() . "\n";
     }
@@ -111,6 +120,7 @@ function getJson($file_path) {
       return $json;
     }
     else {
+      echo "Invalid JSON: $file_path\n";
       return [];
     }
   }
