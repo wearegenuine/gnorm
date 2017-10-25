@@ -4,6 +4,6 @@
     "minimum-stability": "dev",
     "require": {},
     "require-dev": {
-        "twig/twig": "^3.0@dev"
+        "genuine/gnormtwig": "^1.0"
     }
 }
