@@ -12,15 +12,18 @@
 $palettes: (
   colors: (
     black: (
-      base: #504d4b
+      base: #000
     ),
     white: (
-      base: #fff,
+      base: #fff
     ),
-    brown: (
-      light: #faf5eb,
-      base: #614b2e,
-      dark: rgba(#020100, .12)
+    gray: (
+      light: #d3d3d3,
+      base: #bebebe,
+      dark: #a9a9a9
+    ),
+    blue: (
+      base: #0074D9
     )
   )
 );

@@ -25,4 +25,9 @@
   </script>
 
   <link rel="stylesheet" href="/styles/screen.css">
+
+  {% for link in cssLinks %}
+    <link rel="stylesheet" href="{{ link }}">
+  {% endfor %}
+
 </head>
