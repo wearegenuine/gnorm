@@ -5,23 +5,22 @@
     </a>
     <h1>{{ title }}</h1>
   </section>
-  <section class="wrapper">
-    <section>
-      <header>
-        <h2>Color Palette</h2>
-      </header>
+  {% if colors is defined %}
+    <section class="wrapper">
       <section>
-        <ul class="color-palette">
-          <li><span class="color-swatch color-swatch--black"></span></li>
-          <li><span class="color-swatch color-swatch--white"></span></li>
-          <li><span class="color-swatch color-swatch--gray-light"></span></li>
-          <li><span class="color-swatch color-swatch--gray"></span></li>
-          <li><span class="color-swatch color-swatch--gray-dark"></span></li>
-          <li><span class="color-swatch color-swatch--blue"></span></li>
-        </ul>
+        <header>
+          <h2>Color Palette</h2>
+        </header>
+        <section>
+            <ul class="color-palette">
+              {% for key, value in colors %}
+                <li><span class="color-swatch color-swatch--{{ key }}"></span></li>
+              {% endfor %}
+            </ul>
+        </section>
       </section>
     </section>
-  </section>
+  {% endif %}
   <section class="wrapper">
     <section>
       <header>
@@ -317,4 +316,3 @@
       </ul>
     </section>
   </section>
-

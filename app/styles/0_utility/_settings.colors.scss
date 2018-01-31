@@ -9,6 +9,20 @@
   @return map-get(map-get(map-get($palettes, colors), $palette), $tone);
 }
 
+// Returns flattened $palettes color map used to generate color swatch classes
+@function get-flat-palette($map) {
+  $colors: ();
+  @each $color, $value in map-get($map, colors) {
+    @each $name, $tone in $value {
+      // key for "base" color is the color name itself, e.g. "gray"
+      // key for other tones combines color and tone name, e.g. "gray-light"
+      $key: if($name == "base", $color, $color + "-" + $name);
+      $colors: map-merge($colors, ($key: $tone));
+    }
+  }
+  @return $colors;
+}
+
 $palettes: (
   colors: (
     black: (
@@ -27,6 +41,9 @@ $palettes: (
     )
   )
 );
+
+// Save palette as flat map, used by style-guide.scss and variables.scss
+$color-map: get-flat-palette($palettes);
 
 $white:   palette(white);
 $black:   palette(black);

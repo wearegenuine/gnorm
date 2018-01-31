@@ -13,21 +13,6 @@
 @import '1_core/grid';
 @import '1_core/helpers.clearfix';
 
-
-// Returns flattened $palettes color map used to generate color swatch classes
-@function get-flat-palette($map) {
-  $colors: ();
-  @each $color, $value in map-get($map, colors) {
-    @each $name, $tone in $value {
-      // key for "base" color is the color name itself, e.g. "gray"
-      // key for other tones combines color and tone name, e.g. "gray-light"
-      $key: if($name == "base", $color, $color + "-" + $name);
-      $colors: map-merge($colors, ($key: $tone));
-    }
-  }
-  @return $colors;
-}
-
 .color-palette {
   @include list-unstyled;
   display: flex;
@@ -61,7 +46,7 @@
   }
 
   // Generate color swatch classes for each value in flattened $palettes map
-  @each $color, $value in get-flat-palette($palettes) {
+  @each $color, $value in $color-map {
     &--#{$color} {
       @include color-contrast($value);
       background-color: $value;

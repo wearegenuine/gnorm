@@ -56,7 +56,10 @@ module.exports = {
     }
   },
   styles: {
-    src: src + '/styles/**/*.{sass,scss}',
+    src: [
+      src + '/styles/**/*.{sass,scss}',
+      '!' + src + '/styles/variables.scss'
+    ],
     dest: dest + '/styles'
   },
   twig: {
@@ -68,6 +71,7 @@ module.exports = {
       src + '/json/*.json'
     ],
     data: '../.' + src + '/json/',
-    includes: src + '/includes'
+    includes: src + '/includes',
+    variables: src + '/styles/variables.scss'
   }
 }
