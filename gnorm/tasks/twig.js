@@ -4,8 +4,7 @@ const gulp = require('gulp'),
     path = require('path'),
     plumber = require('gulp-plumber'),
     gutil = require('gulp-util'),
-    config = require('../config').twig,
-    sass = require('node-sass');
+    config = require('../config').twig;
 
 // De-caching for Data files
 function requireUncached($module) {
@@ -13,18 +12,7 @@ function requireUncached($module) {
   return require($module);
 }
 
-// Extracts JSON data from CSS comment
-// https://github.com/oddbird/sassdoc-theme-herman/blob/master/sass-json-loader.js
-function sassJsonLoader(source) {
-  const startMarker = '/*! json-encode:';
-  const endMarker = '*/';
-  const start = source.indexOf(startMarker);
-  const end = source.indexOf(endMarker, start);
-  const jsondata = source.slice(start + startMarker.length, end);
-  return jsondata;
-};
-
-gulp.task('twig', function () {
+gulp.task('twig', ['variables'], function () {
   return gulp.src(config.src)
     .pipe(plumber({
       errorHandler: function(error) {
@@ -36,11 +24,7 @@ gulp.task('twig', function () {
       return requireUncached(config.data + 'global.json');
     }))
     .pipe(data(function(file) {
-      let result = sass.renderSync({
-        file: config.variables,
-        includePaths: ['./node_modules/']
-      });
-      return JSON.parse(sassJsonLoader(result.css.toString()))
+      return requireUncached(config.data + 'variables.json');
     }))
     .pipe(data(function(file) {
       return requireUncached(config.data + path.basename(file.path, '.twig') + '.json');

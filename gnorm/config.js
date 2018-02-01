@@ -73,5 +73,9 @@ module.exports = {
     data: '../.' + src + '/json/',
     includes: src + '/includes',
     variables: src + '/styles/variables.scss'
+  },
+  variables: {
+    src: src + '/styles/variables.scss',
+    dest: src + '/json'
   }
 }

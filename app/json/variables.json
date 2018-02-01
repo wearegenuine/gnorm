@@ -1,0 +1,10 @@
+ {
+   "colors": {
+     "black": "#000",
+     "white": "#fff",
+     "gray-light": "#d3d3d3",
+     "gray": "#bebebe",
+     "gray-dark": "#a9a9a9",
+     "blue": "#0074D9"
+   }
+ }
