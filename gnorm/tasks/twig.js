@@ -12,7 +12,7 @@ function requireUncached($module) {
   return require($module);
 }
 
-gulp.task('twig', function () {
+gulp.task('twig', ['variables'], function () {
   return gulp.src(config.src)
     .pipe(plumber({
       errorHandler: function(error) {
@@ -22,6 +22,9 @@ gulp.task('twig', function () {
     }))
     .pipe(data(function(file) {
       return requireUncached(config.data + 'global.json');
+    }))
+    .pipe(data(function(file) {
+      return requireUncached(config.data + 'variables.json');
     }))
     .pipe(data(function(file) {
       return requireUncached(config.data + path.basename(file.path, '.twig') + '.json');

@@ -12,15 +12,18 @@
 $palettes: (
   colors: (
     black: (
-      base: #504d4b
+      base: #000
     ),
     white: (
-      base: #fff,
+      base: #fff
     ),
-    brown: (
-      light: #faf5eb,
-      base: #614b2e,
-      dark: rgba(#020100, .12)
+    gray: (
+      light: #d3d3d3,
+      base: #bebebe,
+      dark: #a9a9a9
+    ),
+    blue: (
+      base: #0074D9
     )
   )
 );
@@ -33,3 +36,21 @@ p {
   color: palette(brown, light);
 }
 **/
+
+
+// Returns flattened $palettes color map
+@function get-flat-palette($map) {
+  $colors: ();
+  @each $color, $value in map-get($map, colors) {
+    @each $name, $tone in $value {
+      // key for "base" color is the color name itself, e.g. "gray"
+      // key for other tones combines color and tone name, e.g. "gray-light"
+      $key: if($name == "base", $color, $color + "-" + $name);
+      $colors: map-merge($colors, ($key: $tone));
+    }
+  }
+  @return $colors;
+}
+
+// Save palette as flat map, used by style-guide.scss and variables.scss
+$color-map: get-flat-palette($palettes);

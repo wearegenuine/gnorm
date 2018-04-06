@@ -4,6 +4,24 @@
       < Back to Template Index<br>
     </a>
     <h1>{{ title }}</h1>
+  </section>
+  {% if colors is defined %}
+    <section class="wrapper">
+      <section>
+        <header>
+          <h2>Color Palette</h2>
+        </header>
+        <section>
+            <ul class="color-palette">
+              {% for key, value in colors %}
+                <li><span class="color-swatch color-swatch--{{ key }}"></span></li>
+              {% endfor %}
+            </ul>
+        </section>
+      </section>
+    </section>
+  {% endif %}
+  <section class="wrapper">
     <section>
       <header>
         <h2>Basic Text Styles</h2>
@@ -298,4 +316,3 @@
       </ul>
     </section>
   </section>
-
