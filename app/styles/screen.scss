@@ -10,10 +10,9 @@
 // ========================================================================= //
 
 //Tools
-@import 'breakpoint-sass/stylesheets/breakpoint.scss'; // The node_modules folder is getting auto-included in the styles Gulp task
+@import 'breakpoint-sass/stylesheets/_breakpoint'; // The node_modules folder is getting auto-included in the styles Gulp task
 @import 'susy/sass/_susy'; // The node_modules folder is getting auto-included in the styles Gulp task
-@import 'sanitize.css/lib/sanitize.scss';
-$root-font-size: 62.5%;
+@import 'sanitize.css/sanitize.css';
 
 // ========================================================================= //
 // Utilities

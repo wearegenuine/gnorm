@@ -3,8 +3,8 @@ const gulp = require('gulp'),
     twig = require('gulp-twig'),
     path = require('path'),
     plumber = require('gulp-plumber'),
-    gutil = require('gulp-util'),
-    config = require('../config').twig;
+    config = require('../config').twig,
+    log = require('fancy-log');
 
 // De-caching for Data files
 function requireUncached($module) {
@@ -16,7 +16,7 @@ gulp.task('twig', ['variables'], function () {
   return gulp.src(config.src)
     .pipe(plumber({
       errorHandler: function(error) {
-        gutil.log(error.message);
+        log(error.message);
         this.emit('end');
       }
     }))

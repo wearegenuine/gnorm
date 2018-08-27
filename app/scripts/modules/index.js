@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 module.exports = {
   init: function() {
     const dataModules = document.querySelectorAll('[data-module]')

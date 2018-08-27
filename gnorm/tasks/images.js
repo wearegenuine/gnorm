@@ -1,11 +1,11 @@
 const gulp = require('gulp'),
     changed = require('gulp-changed'),
     config = require('../config').images,
-    gutil = require('gulp-util'),
     plumber = require('gulp-plumber'),
     imagemin = require('gulp-imagemin'),
     mozjpeg = require('imagemin-mozjpeg'),
-    pngquant = require('imagemin-pngquant');
+    pngquant = require('imagemin-pngquant'),
+    log = require('fancy-log');
 
 gulp.task('images', function() {
   return gulp
@@ -15,7 +15,7 @@ gulp.task('images', function() {
     .pipe(
       plumber({
         errorHandler: function(error) {
-          gutil.log(error.message);
+          log(error.message);
           this.emit('end');
         }
       })
