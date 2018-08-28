@@ -1,8 +1,8 @@
-const $ = require('jquery')
+import $ from 'jquery'
 
-module.exports = class <%= constructor %>{
-  constructor($el) {
-    this.$el = $el
+module.exports = class <%= constructor %> {
+  constructor(el) {
+    this.$el = $(el)
     this.method(this.$el)
   }
 
