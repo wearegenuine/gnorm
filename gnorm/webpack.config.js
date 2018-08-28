@@ -7,7 +7,7 @@ const path = require('path');
 module.exports = {
   context: path.resolve(config.app),
   entry: {
-    app: ['babel-polyfill', './scripts/app'],
+    app: ['@babel/polyfill', './scripts/app'],
     fontloader: './scripts/fontloader'
   },
   output: {
