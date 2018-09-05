@@ -1,56 +1,50 @@
-const config = require('../config').scripts,
-  gulp = require('gulp'),
-  gutil = require('gulp-util'),
+const gulp = require('gulp'),
+  log = require('fancy-log'),
+  PluginError = require('plugin-error'),
   webpack = require('webpack'),
-  webpackConfig = require('../webpack.config.js')
-
-gulp.task('webpack', [])
-
+  webpackConfig = require('../webpack.config')
 
 // PRODUCTION
 gulp.task('webpack:build', function(callback) {
-  // modify some webpack config options
-  const myConfig = Object.create(webpackConfig)
-  myConfig.plugins = myConfig.plugins.concat(
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify('production')
-      }
-    }),
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin(config.uglifyOptions)
-  )
-
-  webpack(myConfig, function(err, stats) {
-    if (err) {
-      throw new gutil.PluginError('webpack:build', err)
+  const prodConfig = Object.assign(webpackConfig, {
+    mode: 'production',
+    optimization: {
+      minimize: true
     }
-    gutil.log('[webpack:build]', stats.toString({
+  })
+
+  webpack(prodConfig, function(err, stats) {
+    if (err) {
+      throw new PluginError('webpack:build', err)
+    }
+
+    log('[webpack:build]', stats.toString({
       colors: true
     }))
+
     callback()
   })
 })
 
 
 // DEVELOPMENT
-// modify some webpack config options
-let myDevConfig = Object.create(webpackConfig)
-myDevConfig.devtool = 'sourcemap'
-myDevConfig.debug = true
-
-// create a single instance of the compiler to allow caching
-let devCompiler = webpack(myDevConfig)
-
 gulp.task('webpack:build-dev', function(callback) {
-  // run webpack
-  devCompiler.run(function(err, stats) {
-    if (err) {
-      throw new gutil.PluginError('webpack:build-dev', err)
+  const devConfig = Object.assign(webpackConfig, {
+    mode: 'development',
+    optimization: {
+      minimize: false
     }
-    gutil.log('[webpack:build-dev]', stats.toString({
+  })
+
+  webpack(devConfig, function(err, stats) {
+    if (err) {
+      throw new PluginError('webpack:build-dev', err)
+    }
+
+    log("[webpack:build-dev]", stats.toString({
       colors: true
     }))
+
     callback()
   })
 })

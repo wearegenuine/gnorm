@@ -1,0 +1,64 @@
+///*------------------------------------*\
+//    #STYLE GUIDE
+//\*------------------------------------*/
+/* Note: Contains CSS used by styleguide, not included in screen.css */
+
+// Import only partials required by this stylesheet
+@import 'breakpoint-sass/stylesheets/_breakpoint';
+@import 'susy/sass/_susy';
+@import '0_utility/_mixins.lists';
+@import '0_utility/_mixins.margin-control';
+@import '0_utility/_settings.colors';
+@import '0_utility/_mixins.color-contrast';
+@import '1_core/grid';
+@import '1_core/helpers.clearfix';
+
+.color-palette {
+  @include list-unstyled;
+  display: flex;
+  flex-flow: row wrap;
+  margin-left: -$spacing-unit;
+  li {
+    display: flex;
+    margin-bottom: $spacing-unit;
+    padding-left: $spacing-unit;
+    width: 100%;
+    @include breakpoint($tablet){
+      width: 50%;
+    }
+    @include breakpoint($desktop){
+      width: 33.33%;
+    }
+  }
+}
+
+.color-swatch {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: $spacing-unit/2 $spacing-unit;
+  width: 100%;
+  &:before {
+    text-transform: capitalize;
+  }
+  &:after {
+    text-transform: uppercase;
+  }
+
+  // Generate color swatch classes for each value in flattened $palettes map
+  @each $color, $value in $color-map {
+    &--#{$color} {
+      @include color-contrast($value);
+      background-color: $value;
+
+      // add trailing space to pseudo content,
+      // prevents minifier from converting hex/color values
+      &:before {
+        content: '#{$color} ';
+      }
+      &:after {
+        content: '#{$value} ';
+      }
+    }
+  }
+}

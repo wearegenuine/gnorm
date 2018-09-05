@@ -1,5 +1,5 @@
 module.exports = class SampleModule {
-  constructor(el){
+  constructor(el) {
     this.el = el
     this.method(this.el)
   }

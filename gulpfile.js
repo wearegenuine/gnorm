@@ -16,4 +16,4 @@ var gulp = require('gulp');
 var requireDir = require('require-dir');
 
 // Require all tasks in gnorm/tasks, including subfolders
-requireDir('./gnorm/tasks', { recurse: true });
+requireDir('./gnorm/tasks', {recurse: true});

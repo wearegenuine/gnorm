@@ -1,12 +1,11 @@
-const _ = require('underscore'),
-    argv = require('yargs').argv,
+const argv = require('yargs').argv,
     config = require('../config').scripts,
     gulp = require('gulp'),
-    gutil = require('gulp-util'),
     modify = require('gulp-modify'),
     prettify = require('gulp-jsbeautifier'),
     rename = require('gulp-rename'),
-    template = require('gulp-template');
+    template = require('gulp-template'),
+    PluginError = require('plugin-error');
 
 const util = {
   capitalizeFirstLetter: function(string) {
@@ -69,7 +68,7 @@ gulp.task('create-module', function() {
 
         // Check to make sure module doesn't exist already
         } else if (util.checkIfExists(modulesArrSanitized, argv.name)) {
-          let err = new gutil.PluginError('template', 'The module "' +
+          let err = new PluginError('template', 'The module "' +
             argv.name +
             '" already exists. Please choose a unique module name.'
           )
