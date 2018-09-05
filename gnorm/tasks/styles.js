@@ -1,13 +1,13 @@
 const browserSync = require('browser-sync'),
   config = require('../config').styles,
   gulp = require('gulp'),
-  gutil = require('gulp-util'),
   cssnano = require('cssnano'),
   plumber = require('gulp-plumber'),
   postcss = require('gulp-postcss'),
   sass = require('gulp-sass'),
   sassGlob = require('gulp-sass-glob'),
-  sourcemaps = require('gulp-sourcemaps');
+  sourcemaps = require('gulp-sourcemaps'),
+  log = require('fancy-log');
 
 
 const plugins = [
@@ -33,7 +33,7 @@ gulp.task('styles', function() {
     .src(config.src)
     .pipe(plumber({
       errorHandler: function(error) {
-        gutil.log(error.message);
+        log(error.message);
         this.emit('end');
       }
     }))

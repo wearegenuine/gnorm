@@ -4,7 +4,7 @@
 /* Note: Contains CSS used by styleguide, not included in screen.css */
 
 // Import only partials required by this stylesheet
-@import 'breakpoint-sass/stylesheets/breakpoint.scss';
+@import 'breakpoint-sass/stylesheets/_breakpoint';
 @import 'susy/sass/_susy';
 @import '0_utility/_mixins.lists';
 @import '0_utility/_mixins.margin-control';
