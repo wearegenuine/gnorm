@@ -215,7 +215,7 @@ module.exports = {
     "object-curly-newline": "off",
     "object-curly-spacing": [
       "error",
-      "never"
+      "always"
     ],
     "object-property-newline": [
       "error",
@@ -250,7 +250,10 @@ module.exports = {
     "require-await": "error",
     "require-jsdoc": "off",
     "rest-spread-spacing": "error",
-    "semi": "off",
+    "semi": [
+      "error",
+      "never"
+    ],
     "semi-spacing": [
       "error",
       {

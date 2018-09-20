@@ -14,7 +14,7 @@ module.exports = {
     path: path.resolve(config.scripts.dest),
     filename: '[name].built.js',
     chunkFilename: '[name].bundle.js',
-    libraryTarget: 'umd'
+    publicPath: '/scripts/'
   },
   optimization: {
     splitChunks: {
