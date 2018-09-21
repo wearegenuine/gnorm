@@ -1,8 +1,8 @@
 /* eslint-disable no-sync*/
-const config = require('./config');
-const webpack = require('webpack');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const path = require('path');
+const config = require('./config')
+const webpack = require('webpack')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const path = require('path')
 
 module.exports = {
   context: path.resolve(config.app),
