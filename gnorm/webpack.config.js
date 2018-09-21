@@ -1,8 +1,8 @@
 /* eslint-disable no-sync*/
-const config = require('./config');
-const webpack = require('webpack');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const path = require('path');
+const config = require('./config')
+const webpack = require('webpack')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const path = require('path')
 
 module.exports = {
   context: path.resolve(config.app),
@@ -14,7 +14,7 @@ module.exports = {
     path: path.resolve(config.scripts.dest),
     filename: '[name].built.js',
     chunkFilename: '[name].bundle.js',
-    libraryTarget: 'umd'
+    publicPath: '/scripts/'
   },
   optimization: {
     splitChunks: {

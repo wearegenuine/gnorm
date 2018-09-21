@@ -1,4 +1,5 @@
-const browserSync = require('browser-sync'),
+const autoprefixer = require('autoprefixer'),
+  browserSync = require('browser-sync'),
   config = require('../config').styles,
   gulp = require('gulp'),
   cssnano = require('cssnano'),
@@ -7,17 +8,14 @@ const browserSync = require('browser-sync'),
   sass = require('gulp-sass'),
   sassGlob = require('gulp-sass-glob'),
   sourcemaps = require('gulp-sourcemaps'),
-  log = require('fancy-log');
-
+  log = require('fancy-log')
 
 const plugins = [
+  autoprefixer({
+    grid: true
+  }),
   cssnano({
-    autoprefixer: {
-      // CSSNano's implementation of Autoprefixer only removes unnecessary
-      // prefixes by default.  `add: true` fixes that.
-      // To define browser support, see package.json > browserslist.
-      add: true
-    },
+    autoprefixer: false,
     discardComments: {
       removeAll: true
     },
@@ -26,15 +24,15 @@ const plugins = [
       sourcemap: true
     }
   })
-];
+]
 
 gulp.task('styles', function() {
   return gulp
     .src(config.src)
     .pipe(plumber({
       errorHandler: function(error) {
-        log(error.message);
-        this.emit('end');
+        log(error.message)
+        this.emit('end')
       }
     }))
     .pipe(sourcemaps.init())

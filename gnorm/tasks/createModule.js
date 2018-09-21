@@ -5,7 +5,7 @@ const argv = require('yargs').argv,
     prettify = require('gulp-jsbeautifier'),
     rename = require('gulp-rename'),
     template = require('gulp-template'),
-    PluginError = require('plugin-error');
+    PluginError = require('plugin-error')
 
 const util = {
   capitalizeFirstLetter: function(string) {
