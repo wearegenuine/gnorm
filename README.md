@@ -236,7 +236,7 @@ You can quickly generate a new module right from the command line. Run `gulp cre
 
 You can also pass an _async_ flag to the command. For example `gulp create-module --name=moduleName --async`. This will tell Webpack to bundle this file separately from the rest of the application and will asynchronously load this module in only when the module is referenced on the page.
 
-When you generate a new module, it will have two files; the _.load_ file and the _.main_ file. You don't need to touch the _.main_ file. This simply tells Webpack how to require the module in the build (depending on whether you specified it to be asynchronous or not).
+When you generate a new module, it will have two files; the _.load_ file and the _.main_ file. You don't need to touch the _.load_ file. This simply tells Webpack how to require the module in the build (depending on whether you specified it to be asynchronous or not).
 
 The _.main_ file is where you write your code. It exports an ES6 class:
 
