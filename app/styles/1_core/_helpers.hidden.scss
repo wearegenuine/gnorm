@@ -1,15 +1,28 @@
-///*------------------------------------*\
-//    #CORE/HELPERS - HIDDEN
-//\*------------------------------------*/
-/* Note: Add the .hidden class to GNorm, this class is intended to be used on links
- * that should not display their text, ex. a icon button.
- */
+// =======================================
+//    #UTILITY - HIDDEN
+//
+// To be used on links (etc) that should not
+// display their text, ex. a icon button.
+//
+// https://a11yproject.com/posts/how-to-hide-content/
+// =======================================
 
-.hidden{
+@mixin hidden {
+  clip: rect(1px, 1px, 1px, 1px);
   height: 1px;
-  left: -10000px;
   overflow: hidden;
-  position: absolute;
-  top: auto;
+  position: absolute !important;
   width: 1px;
+
+  a:focus,
+  input:focus,
+  button:focus {
+    height: auto;
+    position: static;
+    width: auto;
+  }
+}
+
+.hidden {
+  @include hidden;
 }

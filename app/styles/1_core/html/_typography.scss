@@ -1,9 +1,15 @@
-///*------------------------------------*\
+// =======================================
 //    #CORE/HTML - TYPOGRAPHY
-//\*------------------------------------*/
+// =======================================
 
-em {
-  font-style: normal;
+// =============================================================================
+// Font Smoothing
+//
+// `@extend %font-smoothing` when using custom fonts over dark backgrounds
+// =============================================================================
+%font-smoothing {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 strong {
