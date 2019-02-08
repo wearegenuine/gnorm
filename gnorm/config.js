@@ -1,5 +1,5 @@
-const src = './app';
-const dest = './build';
+const src = './app'
+const dest = './build'
 
 module.exports = {
   app: src,
@@ -22,7 +22,7 @@ module.exports = {
     dest: dest
   },
   fonts: {
-    src: `${src}/fonts`,
+    src: `${src}/fonts/**/*`,
     dest: `${dest}/fonts`
   },
   images: {

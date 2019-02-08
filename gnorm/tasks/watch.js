@@ -3,7 +3,7 @@ const config = require('../config'),
   path = require('path')
 
 gulp.task('watch', ['browserSync'], function() {
-  gulp.watch(config.images.src, ['images'])
+  gulp.watch(config.images.src, ['copy:images'])
   gulp.watch(config.twig.watchSrc, ['twig'])
   gulp.watch(config.scripts.all, ['webpack:build-dev'])
   gulp.watch(config.styles.src).on('change', function(file) {

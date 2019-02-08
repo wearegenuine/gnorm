@@ -2,7 +2,9 @@ const gulp = require('gulp'),
   log = require('fancy-log'),
   PluginError = require('plugin-error'),
   webpack = require('webpack'),
-  webpackConfig = require('../webpack.config')
+  webpackConfig = require('../webpack.config'),
+  BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+
 
 // PRODUCTION
 gulp.task('webpack:build', function(callback) {
@@ -10,7 +12,16 @@ gulp.task('webpack:build', function(callback) {
     mode: 'production',
     optimization: {
       minimize: true
-    }
+    },
+    plugins: [
+      new webpack.ProvidePlugin({
+        jQuery: 'jquery/dist/jquery.min',
+        $: 'jquery/dist/jquery.min'
+      }),
+      new BundleAnalyzerPlugin({
+        analyzerMode: 'static'
+      })
+    ]
   })
 
   webpack(prodConfig, function(err, stats) {
