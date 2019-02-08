@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+## Run to fix permission denied issues that appear at random.
+##
+## Usage: fin fix-nfs
+
+ls -aLR $PROJECT_ROOT >/dev/null 2>&1

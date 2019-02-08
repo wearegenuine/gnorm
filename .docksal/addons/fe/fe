@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+## Commands for front end tasks.  (fin help fe) for more information
+##
+## Usage: fin fe <command>
+##
+## Sub-commands:
+##   build      Build template for production
+##   watch      Watch for file changes and build automatically
+
+
+# If $THEME_PATH is defined in DOCKSAL.ENV, fe commands can be run from anywhere in project
+if [ "$THEME_PATH" ]; then
+  if [ -d "$PROJECT_ROOT/$THEME_PATH" ]; then
+    cd $PROJECT_ROOT/$THEME_PATH || exit
+  fi
+fi
+
+case "$1" in
+  build)
+    $ADDON_ROOT/build
+  ;;
+  watch)
+    $ADDON_ROOT/watch
+  ;;
+  *)
+    fin help fe
+  ;;
+esac

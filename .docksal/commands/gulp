@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+## Run Gulp Commands
+##
+## Usage: fin gulp [commands]
+
+fin exec npx gulp $@
