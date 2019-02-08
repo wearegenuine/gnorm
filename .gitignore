@@ -1,9 +1,10 @@
-bower_components
-node_modules
-.sass-cache
-.tmp
+$.DS_Store
 *.zip
 .DS_Store
-$.DS_Store
-npm-debug.log
+.sass-cache
+.tmp
 Gemfile.lock
+bower_components
+build
+node_modules
+npm-debug.log

@@ -4,10 +4,10 @@ const gulp = require('gulp')
 gulp.task('default', ['watch'])
 
 //Builds dev
-gulp.task('dev', ['fonts', 'webpack:build-dev', 'styles', 'images', 'twig', 'copy'])
+gulp.task('dev', ['webpack:dev', 'styles', 'twig:dev', 'copy'])
 
 //Builds dist
-gulp.task('dist', ['fonts', 'browserSync:dist'])
+gulp.task('dist', ['browserSync:dist'])
 
 //Builds dist and starts browsersync
-gulp.task('build', ['fonts', 'webpack:build', 'styles', 'images', 'twig', 'copy'])
+gulp.task('build', ['webpack:build', 'styles', 'twig:build', 'copy'])

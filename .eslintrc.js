@@ -2,19 +2,17 @@ module.exports = {
   "env": {
     "browser": true,
     "commonjs": true,
-    "es6": true
+    "es6": true,
+    "jquery": true
   },
   "extends": "eslint:recommended",
+  "globals": {
+    "$": true
+  },
   "parserOptions": {
-    // "ecmaFeatures": {
-    //   "jsx": true
-    // },
-    "ecmaVersion": "2018",
+    "ecmaVersion": "10",
     "sourceType": "module"
   },
-  // "plugins": [
-  //     "react"
-  // ],
   "rules": {
     "accessor-pairs": "error",
     "array-bracket-spacing": [
@@ -28,13 +26,7 @@ module.exports = {
       "error",
       "always"
     ],
-    "arrow-spacing": [
-      "error",
-      {
-        "after": true,
-        "before": true
-      }
-    ],
+
     "block-scoped-var": "error",
     "block-spacing": [
       "error",
@@ -251,13 +243,13 @@ module.exports = {
     "require-jsdoc": "off",
     "rest-spread-spacing": "error",
     "semi": [
-      "error",
+      "warn",
       "never"
     ],
     "semi-spacing": [
       "error",
       {
-        "after": false,
+        "after": true,
         "before": false
       }
     ],

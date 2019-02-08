@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+## Watch for file changes in the theme to trigger a build.  Will not work with browsersync.
+## This should be run after "fin feinstall".
+##
+## Usage: fin fewatch
+
+fin exec npx gulp watch

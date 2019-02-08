@@ -1,8 +1,8 @@
 /* eslint-disable no-sync*/
-const config = require('./config')
-const webpack = require('webpack')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const config = require('./config')
 const path = require('path')
+const webpack = require('webpack')
 
 module.exports = {
   context: path.resolve(config.app),
@@ -11,9 +11,9 @@ module.exports = {
     fontloader: './scripts/fontloader'
   },
   output: {
-    path: path.resolve(config.scripts.dest),
+    chunkFilename: '[name].bundle.js?[hash:6]',
     filename: '[name].built.js',
-    chunkFilename: '[name].bundle.js',
+    path: path.resolve(config.scripts.dest),
     publicPath: '/scripts/'
   },
   optimization: {
