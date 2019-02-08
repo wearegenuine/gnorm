@@ -7,21 +7,15 @@
   <title>Genuine - UI Templates</title>
 
   <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta http-equiv="cleartype" content="on">
 
   <link rel="shortcut icon" href="/favicon.ico">
+
   <script>
-  // If fonts are cached, skip FFO.
-  if (sessionStorage.fontsLoaded === 'true') {
-    document.documentElement.classList.add("fonts-loaded")
-  }
-  else {
-    var script = document.createElement("script")
-    script.src = "/scripts/fontloader.built.js"
-    script.async = true
-    document.head.appendChild(script)
-  }
+  if("true"===sessionStorage.fontsLoaded)document.documentElement.classList.add("fonts-loaded")
+  else{var script=document.createElement("script")
+  script.src="/assets/MGH/js/fontloader.min.js",script.defer=!0,document.head.appendChild(script)}
   </script>
 
   <link rel="stylesheet" href="/styles/screen.css">
@@ -30,7 +24,7 @@
     <link rel="stylesheet" href="{{ link }}">
   {% endfor %}
 
-</head>
   {% if not isBuild %}
     {% include '@includes/1_core/browser-sync.twig' %}
   {% endif %}
+</head>
