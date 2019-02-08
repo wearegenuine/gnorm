@@ -1,9 +1,9 @@
-///*------------------------------------*\
+// ================================== //
 //    #UTILITY - COLORS
-//\*------------------------------------*/
-/* Note: the palette function is included here (vs in the tools directory)
- * since both of these needed in order to work properly
- */
+//
+// Note: the palette function is included here (vs in the tools directory)
+// since both of these are needed in order to work properly
+// ================================== //
 
 @function palette($palette, $tone: 'base') {
   @return map-get(map-get(map-get($palettes, colors), $palette), $tone);
