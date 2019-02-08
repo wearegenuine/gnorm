@@ -1,0 +1,15 @@
+image: docksal/ci-agent:1.6-php
+
+pipelines:
+  branches:
+    develop:
+      - step:
+          name: Build and push artifact
+          deployment: staging
+          script:
+            - source build-env # retrieves SSH secrets variables set in Genuine Team/account
+            - $BUILD_DIR/.docksal/scripts/pipelines/build-preserve # if the staging site for this repo/branch exists on server, git pull, otherwise, init the site
+            - build-exec "fin up" # load project containers
+            - build-exec "fin exec 'nvm install 10.14.0 && nvm alias default node'"  # installs specific Node version and sets as default
+            - build-exec "fin exec npm ci || exit 1" # runs NPM Clean Install to install node packages from package-lock.json
+            - build-exec "fin exec npx gulp build || exit 1"  # runs gulp build task
