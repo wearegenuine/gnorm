@@ -31,3 +31,6 @@
   {% endfor %}
 
 </head>
+  {% if not isBuild %}
+    {% include '@includes/1_core/browser-sync.twig' %}
+  {% endif %}

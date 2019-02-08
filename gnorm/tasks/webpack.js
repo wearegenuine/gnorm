@@ -39,7 +39,7 @@ gulp.task('webpack:build', function(callback) {
 
 
 // DEVELOPMENT
-gulp.task('webpack:build-dev', function(callback) {
+gulp.task('webpack:dev', function(callback) {
   const devConfig = Object.assign(webpackConfig, {
     mode: 'development',
     optimization: {

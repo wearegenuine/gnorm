@@ -12,7 +12,39 @@ function requireUncached($module) {
   return require($module)
 }
 
-gulp.task('twig', ['variables'], function() {
+let isBuild = '{ "isBuild": true }'
+
+gulp.task('twig:build', ['variables'], function () {
+  return gulp.src(config.src)
+    .pipe(plumber({
+      errorHandler: function(error) {
+        log(error.message)
+        this.emit('end')
+      }
+    }))
+    .pipe(data(function(file) {
+      return JSON.parse(isBuild)
+    }))
+    .pipe(data(function(file) {
+      return requireUncached(config.data + 'global.json')
+    }))
+    .pipe(data(function(file) {
+      return requireUncached(config.data + 'variables.json')
+    }))
+    .pipe(data(function(file) {
+      return requireUncached(config.data + path.basename(file.path, '.twig') + '.json')
+    }))
+    .pipe(twig({
+      namespaces: config.namespaces,
+      onError: function() {
+        //Emits error without killing the server
+      }
+    }))
+    .pipe(plumber.stop())
+    .pipe(gulp.dest(config.dest))
+})
+
+gulp.task('twig:dev', function () {
   return gulp.src(config.src)
     .pipe(plumber({
       errorHandler: function(error) {
@@ -30,9 +62,7 @@ gulp.task('twig', ['variables'], function() {
       return requireUncached(config.data + path.basename(file.path, '.twig') + '.json')
     }))
     .pipe(twig({
-      namespaces: {
-        'includes': config.includes
-      },
+      namespaces: config.namespaces,
       onError: function() {
         //Emits error without killing the server
       }
