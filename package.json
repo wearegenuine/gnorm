@@ -63,5 +63,8 @@
   "scripts": {
     "dev": "webpack --watch --mode development --config ./gnorm/webpack.config.js",
     "build": "webpack --mode production --config ./gnorm/webpack.config.js"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1"
   }
 }

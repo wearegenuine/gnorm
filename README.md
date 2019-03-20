@@ -18,9 +18,9 @@ Once you have installed the above dependencies:
 
 From the root of the project, several commands can be issued from terminal:
 
-1. `fin fe watch`: Runs the default Gulp task. This builds the project with source maps from the `app` folder into the `build` folder, spawns a Node server, opens a new browser with the website at http://gnorm.docksal, and listens for subsequent changes. When you edit and save a new file, Gulp will recompile accordingly and refresh your browser window with the latest changes automatically.
+1. `fin gulp`: Runs the default Gulp task. This builds the project with source maps from the `app` folder into the `build` folder, spawns a Node server, opens a new browser with the website at http://gnorm.docksal, and listens for subsequent changes. When you edit and save a new file, Gulp will recompile accordingly and refresh your browser window with the latest changes automatically.
 2. `fin gulp dev`: Runs the above Gulp task without spawning a server.
-3. `fin fe build`: Builds project from the `app` folder into the `build`, uglifies the JS, and minifies the CSS. This should generally be run prior to committing/pushing your code to the repo.
+3. `fin gulp build`: Builds project from the `app` folder into the `build`, uglifies the JS, and minifies the CSS. This should generally be run prior to committing/pushing your code to the repo.
 4. `fin gulp dist`: Runs the above task and spawns a localhost server. This is useful if you want to proof the production build before pushing it to a remote server.
 
 ## Project Architecture
