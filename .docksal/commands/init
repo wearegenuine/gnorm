@@ -10,8 +10,17 @@ NC='\033[0m'
 #-------- Runtime ----------
 
 # Reset containers
-echo -e "\n${yellow}Resetting containers${NC}"
-fin project reset --force
+while getopts ":r" flag; do
+  case $flag in
+    r)
+      echo -e "\n${yellow}Resetting containers${NC}"
+      fin project reset --force
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      ;;
+  esac
+done
 
 # Update Node to LTS, and use it
 if [ "$NODE_VERSION" ]; then
