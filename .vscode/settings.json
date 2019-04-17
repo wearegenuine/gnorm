@@ -1,0 +1,6 @@
+{
+  "path-intellisense.mappings": {
+    "@includes": "${workspaceRoot}/app/includes"
+  },
+  "editor.tabSize": 2
+}
