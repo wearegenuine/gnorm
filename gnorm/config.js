@@ -70,8 +70,10 @@ module.exports = {
       `${src}/json/*.json`
     ],
     data: `../.${src}/json/`,
-    includes: `${src}/includes`,
-    variables: `${src}/styles/variables.scss`
+    variables: `${src}/styles/variables.scss`,
+    namespaces: {
+      'includes': `${src}/includes`,
+    }
   },
   variables: {
     src: src + '/styles/variables.scss',

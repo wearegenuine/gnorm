@@ -1,6 +1,1 @@
 version: "2.1"
-services:
-  cli:
-    ports:
-      - 3000:3000
-      - 3001:3001

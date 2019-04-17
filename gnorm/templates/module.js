@@ -1,5 +1,3 @@
-import $ from 'jquery'
-
 module.exports = class <%= constructor %> {
   constructor(el) {
     this.$el = $(el)
